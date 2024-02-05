@@ -4,7 +4,7 @@
 Application::Application(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::Application) {
     ui->setupUi(this);
-    userStorage = new UserStorage("C:\\Users\adrie\\Documents\\S8\\TP_PlatLog\\TP_PlatLog\\UserFile.json"); // Initialisez avec le chemin du fichier ou d'autres paramètres si nécessaire
+    userStorage = new UserStorage("UserFile.json"); // Initialise avec le chemin du fichier ou d'autres paramètres si nécessaire
     loginManager = new LoginManager(userStorage);
 
     initializeApplication();
@@ -25,9 +25,8 @@ void Application::initializeApplication() {
 }
 
 bool Application::isFirstLaunch() {
-    // Implémentez la logique pour déterminer si c'est le premier lancement
-    // Par exemple, vérifiez l'existence du fichier utilisateur ou d'autres indicateurs
-    return !userStorage->userFileExists();
+    // Vérifie si un utilisateur autre que le super utilisateur existe
+    return !userStorage->nonSuperUserExists();
 }
 
 void Application::showUserCreationForm() {

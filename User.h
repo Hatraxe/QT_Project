@@ -8,7 +8,7 @@
 
 class User {
 public:
-    User(const QString &username, const QString &password);
+    User(const QString &username, const QString &password, const UserRights &rights);
     ~User();
 
     void addProfile(Profile *profile); // Ajoute un profil à l'utilisateur
