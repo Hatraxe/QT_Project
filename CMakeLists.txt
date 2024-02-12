@@ -43,6 +43,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         User.cpp
         UserRights.cpp
         UserStorage.cpp
+        signinform.h signinform.cpp signinform.ui
+        loginform.h loginform.cpp loginform.ui
+
+
 
     )
 # Define target properties for Android with Qt 6 as:

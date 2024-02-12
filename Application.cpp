@@ -1,13 +1,25 @@
 #include "Application.h"
-#include "./ui_application.h" // Assurez-vous que le chemin vers le fichier UI est correct
+#include "./ui_application.h"
+#include "signinform.h"
+#include "loginform.h"
 
-Application::Application(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::Application) {
+Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Application) {
     ui->setupUi(this);
-    userStorage = new UserStorage("UserFile.json"); // Initialise avec le chemin du fichier ou d'autres paramètres si nécessaire
-    loginManager = new LoginManager(userStorage);
 
-    initializeApplication();
+    // Créez les instances des formulaires
+    auto signInForm = new SignInForm(this); // Assurez-vous de passer 'this' pour définir le parent et gérer correctement la mémoire
+    auto loginForm = new LoginForm(this);
+
+    // Ajoutez les formulaires au QStackedWidget
+    ui->stackedWidget->addWidget(signInForm);
+    ui->stackedWidget->addWidget(loginForm);
+
+    // Optionnellement, définissez le widget à afficher en premier
+    if (isFirstLaunch()) {
+        ui->stackedWidget->setCurrentWidget(signInForm);
+    } else {
+        ui->stackedWidget->setCurrentWidget(loginForm);
+    }
 }
 
 Application::~Application() {
