@@ -1,0 +1,7 @@
+# Doxyfile.in
+PROJECT_NAME           = "TP_PlatLog"
+INPUT                  = ./src
+OUTPUT_DIRECTORY       = ./doc
+GENERATE_HTML          = YES
+GENERATE_UML           = YES
+CLASS_DIAGRAMS         = YES
