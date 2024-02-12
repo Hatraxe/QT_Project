@@ -1,9 +1,7 @@
 #include "user.h"
 
-User::User(const QString &username, const QString &password)
-    : username(username), password(password), rights(UserRights(false, false, false)) {
-    // Initialisez rights avec des valeurs par défaut, par exemple sans droits.
-    // Vous pouvez ajuster ces valeurs par défaut selon les besoins de votre application.
+User::User(const QString &username, const QString &password, const UserRights &rights)
+    : username(username), password(password), rights(rights) {
 }
 
 User::~User() {

@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "username": "SuperUser",
+      "password": "password",
+      "rights": {
+        "canView": true,
+        "canEdit": true,
+        "isAdmin": true
+      },
+      "profiles": ["profile1", "profile2"]
+    }
+  ]
+}
