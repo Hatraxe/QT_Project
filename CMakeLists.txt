@@ -36,7 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         DatabaseViewer.h
         Application.cpp
         application.ui
-        UserFile.json
+
         DatabaseViewer.cpp
         LoginManager.cpp
         Profil.cpp

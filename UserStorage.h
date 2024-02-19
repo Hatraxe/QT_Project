@@ -16,7 +16,7 @@ public:
 private:
     QString filename; // Nom du fichier de stockage des utilisateurs
     QString userFilePath; // Chemin vers le fichier utilisateur
-    // Ajoutez ici des méthodes et attributs supplémentaires nécessaires pour la gestion des fichiers
+    // Ajout ici des méthodes et attributs supplémentaires nécessaires pour la gestion des fichiers
 };
 
 #endif // USERSTORAGE_H
