@@ -97,7 +97,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_4"/>
+        <widget class="QLineEdit" name="lineEdit_Mdp"/>
        </item>
       </layout>
      </item>
