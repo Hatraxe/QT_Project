@@ -6,7 +6,7 @@ SignInForm::SignInForm(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SignInForm) {
     ui->setupUi(this);
-    connect(ui->pushButton_Inscrire, &QPushButton::clicked, this, &SignInForm::on_signInButton_clicked);
+    connect(ui->signInButton, &QPushButton::clicked, this, &SignInForm::on_signInButton_clicked);
 }
 
 SignInForm::~SignInForm() {

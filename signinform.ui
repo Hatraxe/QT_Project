@@ -16,8 +16,8 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>30</x>
+     <y>10</y>
      <width>761</width>
      <height>401</height>
     </rect>
@@ -50,7 +50,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_Inscrire">
+   <widget class="QPushButton" name="signInButton">
     <property name="geometry">
      <rect>
       <x>320</x>

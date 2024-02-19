@@ -10,7 +10,8 @@
 
 
 UserStorage::UserStorage(const QString &filename) : filename(filename) {
-    userFilePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/" + filename;
+    userFilePath = "C:\\Users\\Louis\\Documents\\QT_Project\\" + filename;
+        //QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "" + filename;
     initializeStorage();
 }
 
@@ -101,7 +102,7 @@ void UserStorage::initializeStorage() {
 
             // Créer le super utilisateur
             QJsonObject superUser;
-            superUser["username"] = "superuser";
+            superUser["username"] = "SuperUser";
             QByteArray hashedPassword = QCryptographicHash::hash(QString("Password1!").toUtf8(), QCryptographicHash::Sha256);
             superUser["password"] = QString(hashedPassword.toHex());
             users.append(superUser);
@@ -119,6 +120,7 @@ void UserStorage::initializeStorage() {
 bool UserStorage::nonSuperUserExists() {
     QFile file(userFilePath);
     if (!file.open(QIODevice::ReadOnly)) {
+        printf("readOnly");
         return false;
     }
 
@@ -128,10 +130,13 @@ bool UserStorage::nonSuperUserExists() {
 
     for (const QJsonValue &userVal : users) {
         QJsonObject user = userVal.toObject();
-        if (user["username"].toString() != "superuser") {
+        if (user["username"].toString() != "SuperUser") {
+            printf("!=Superuser found");
+
             return true; // Un utilisateur autre que le super utilisateur a été trouvé
         }
     }
+    printf("Aucun utilisateur autre que le super utilisateur n'a été trouvé");
 
     return false; // Aucun utilisateur autre que le super utilisateur n'a été trouvé
 }
