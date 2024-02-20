@@ -8,7 +8,7 @@ public:
     UserStorage(const QString &filename);
     bool userExists(const QString &username); // Vérifie si un utilisateur existe
     bool userFileExists(); //Verifie si un user file exist
-    void saveUser(const QString &username, const QString &password); // Enregistre un nouvel utilisateur
+    void saveUser(const QString &firstName,const QString &lastName,const QString &username, const QString &password); // Enregistre un nouvel utilisateur
     bool validateUser(const QString &username, const QString &password); // Valide les informations de connexion
     void initializeStorage();
     bool nonSuperUserExists(); // Vérifie si un utilisateur autre que le super utilisateur existe

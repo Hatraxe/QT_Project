@@ -8,7 +8,7 @@
 
 class User {
 public:
-    User(const QString &username, const QString &password, const UserRights &rights);
+    User(const QString &firstName,const QString &lastName,const QString &username, const QString &password, const UserRights &rights);
     ~User();
 
     void addProfile(Profile *profile); // Ajoute un profil à l'utilisateur
@@ -18,6 +18,8 @@ public:
 private:
     QString username;
     QString password;
+    QString firstName;
+    QString lastName;
     QList<Profile*> profiles; // Liste des profils de l'utilisateur
     UserRights rights; // Droits de l'utilisateur
 };

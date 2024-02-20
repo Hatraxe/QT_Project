@@ -1,6 +1,7 @@
 #include "SignInForm.h"
 #include "ui_signinform.h"
 #include <QMessageBox>
+#include "UserStorage.h"
 
 SignInForm::SignInForm(QWidget *parent) :
     QWidget(parent),
@@ -32,6 +33,7 @@ void SignInForm::on_signInButton_clicked() {
         return;
     }
 
+    saveUser()
     // Ici, insérez la logique pour créer un nouvel utilisateur, par exemple :
     // if (!createUser(nom, prenom, email, password)) {
     //     QMessageBox::warning(this, "Erreur", "Impossible de créer l'utilisateur.");
