@@ -1,18 +1,35 @@
 #include "Application.h"
 #include "./ui_application.h"
-#include "SignInForm.h"
+#include "SignInForm.h"  // Assurez-vous d'avoir le bon nom de fichier d'en-tête
 #include "LoginForm.h"
 
 Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Application) {
     ui->setupUi(this);
+    // Initialisation de UserStorage et LoginManager
+    userStorage = new UserStorage("UserFile.json");
+    loginManager = new LoginManager(userStorage);
+    // Créez les instances des formulaires
+    SignInForm *signInForm = new SignInForm(this);  // Assurez-vous de passer 'this' pour définir le parent et gérer correctement la mémoire
+    LoginForm *loginForm = new LoginForm(this);
 
-    initializeApplication(); // Initialisation des composants de l'application
+    // Ajoutez les formulaires au QStackedWidget
+    ui->stackedWidget->addWidget(signInForm);
+    ui->stackedWidget->addWidget(loginForm);
+
+    // Affiche le formulaire approprié en fonction du premier lancement
+    if (isFirstLaunch()) {
+        ui->stackedWidget->setCurrentWidget(signInForm);
+    } else {
+        ui->stackedWidget->setCurrentWidget(loginForm);
+    }
 }
 
 Application::~Application() {
-    delete ui; // La gestion automatique par Qt s'occupe du reste
-    delete userStorage;
-    delete loginManager;
+    delete ui;
+    // Assurez-vous que userStorage et loginManager sont correctement initialisés avant d'être utilisés
+    // Si ce ne sont pas des objets dynamiques, ils n'ont pas besoin d'être supprimés avec delete.
+    // delete userStorage;
+    // delete loginManager;
 }
 
 void Application::initializeApplication() {
