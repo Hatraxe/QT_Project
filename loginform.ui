@@ -16,10 +16,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>-60</x>
-     <y>30</y>
+     <x>10</x>
+     <y>20</y>
      <width>601</width>
-     <height>371</height>
+     <height>321</height>
     </rect>
    </property>
    <property name="title">
