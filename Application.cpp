@@ -6,22 +6,7 @@
 Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Application) {
     ui->setupUi(this);
     // Initialisation de UserStorage et LoginManager
-    userStorage = new UserStorage("UserFile.json");
-    loginManager = new LoginManager(userStorage);
-    // Créez les instances des formulaires
-    SignInForm *signInForm = new SignInForm(this);  // Assurez-vous de passer 'this' pour définir le parent et gérer correctement la mémoire
-    LoginForm *loginForm = new LoginForm(this);
-
-    // Ajoutez les formulaires au QStackedWidget
-    ui->stackedWidget->addWidget(signInForm);
-    ui->stackedWidget->addWidget(loginForm);
-
-    // Affiche le formulaire approprié en fonction du premier lancement
-    if (isFirstLaunch()) {
-        ui->stackedWidget->setCurrentWidget(signInForm);
-    } else {
-        ui->stackedWidget->setCurrentWidget(loginForm);
-    }
+    initializeApplication();
 }
 
 Application::~Application() {

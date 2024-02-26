@@ -45,6 +45,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         UserStorage.cpp
         signinform.h signinform.cpp signinform.ui
         loginform.h loginform.cpp loginform.ui
+        UserFile.json
 
 
 

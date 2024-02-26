@@ -6,14 +6,16 @@
 #include <QIODevice>
 #include <QStandardPaths>
 #include <QCryptographicHash>
+using namespace std;
 
 
 
 UserStorage::UserStorage(const QString &filename) : filename(filename) {
-    userFilePath = "C:\\Users\\Louis\\Documents\\QT_Project\\" + filename;
-        //QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "" + filename;
+    // Définition explicite du chemin du fichier
+    userFilePath = "C:/Users/adrie/Documents/S8/TP_PlatLog/TP_PlatLog/" + filename;
     initializeStorage();
 }
+
 
 bool UserStorage::userFileExists() {
     return QFile::exists(userFilePath);

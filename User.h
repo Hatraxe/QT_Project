@@ -7,6 +7,7 @@
 #include "userrights.h"
 
 class User {
+
 public:
     User(const QString &username, const QString &password, const UserRights &rights);
     ~User();

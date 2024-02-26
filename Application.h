@@ -17,9 +17,6 @@ public:
     explicit Application(QWidget *parent = nullptr);
     ~Application();
 
-private slots:
-    void on_page_customContextMenuRequested(const QPoint &pos);
-
 private:
     Ui::Application *ui;
     UserStorage *userStorage; // Gestion des données utilisateur
