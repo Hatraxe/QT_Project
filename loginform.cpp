@@ -31,5 +31,5 @@ void LoginForm::on_pushButton_Login_clicked()
 
 void LoginForm::on_pushButton_MdpOublie_clicked()
 {
-
+    QMessageBox::information(this,"Erreur","Conctactez l'administrateur pour changer de mot de passe");
 }

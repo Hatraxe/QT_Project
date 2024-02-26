@@ -40,7 +40,7 @@ bool UserStorage::userExists(const QString &username) {
     return false;
 }
 
-void UserStorage::saveUser(const QString &username, const QString &password) {
+void UserStorage::saveUser(const QString &firstName,const QString &lastName,const QString &username, const QString &password) {
     QFile file(userFilePath);
     QJsonDocument doc;
     QJsonObject root;
@@ -55,6 +55,8 @@ void UserStorage::saveUser(const QString &username, const QString &password) {
 
     QJsonArray users = root["users"].toArray();
     QJsonObject newUser;
+    newUser["firstName"] = firstName;
+    newUser["lastName"] = lastName;
     newUser["username"] = username;
     newUser["password"] = QString(hashedPassword.toHex()); // Stocker le hash sous forme hexadécimale
     users.append(newUser);

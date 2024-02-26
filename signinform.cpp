@@ -1,6 +1,7 @@
 #include "SignInForm.h"
 #include "ui_signinform.h"
 #include <QMessageBox>
+#include "UserStorage.h"
 
 SignInForm::SignInForm(QWidget *parent) :
     QWidget(parent),
@@ -31,7 +32,6 @@ void SignInForm::on_signInButton_clicked() {
         QMessageBox::warning(this, "Erreur de mot de passe", "Les mots de passe ne correspondent pas.");
         return;
     }
-
     // Ici, insérez la logique pour créer un nouvel utilisateur, par exemple :
     // if (!createUser(nom, prenom, email, password)) {
     //     QMessageBox::warning(this, "Erreur", "Impossible de créer l'utilisateur.");

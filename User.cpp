@@ -1,7 +1,7 @@
 #include "user.h"
 
-User::User(const QString &username, const QString &password, const UserRights &rights)
-    : username(username), password(password), rights(rights) {
+User::User(const QString &firstName,const QString &lastName,const QString &username, const QString &password, const UserRights &rights)
+    : firstName(firstName),lastName(lastName),username(username), password(password), rights(rights) {
 }
 
 User::~User() {
