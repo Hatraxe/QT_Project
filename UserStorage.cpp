@@ -1,148 +1,95 @@
 #include "UserStorage.h"
-#include <QFile>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QIODevice>
-#include <QStandardPaths>
+#include "UserSerializer.h"
+#include "userdeserializer.h"
 #include <QCryptographicHash>
-using namespace std;
-
-
+#include <QFile>
+#include <QStandardPaths>
+#include <QDir>
+#include <QCoreApplication>
 
 UserStorage::UserStorage(const QString &filename) : filename(filename) {
-    // Définition explicite du chemin du fichier
-    userFilePath = "C:/Users/adrie/Documents/S8/TP_PlatLog/TP_PlatLog/" + filename;
-    initializeStorage();
-}
+    // Construire le chemin complet vers le fichier des utilisateurs
+    //userFilePath = QCoreApplication::applicationDirPath() + QDir::separator() + "UserFile.json";
+    userFilePath = "C:\\Users\\adrie\\Documents\\S8\\TP_PlatLog\\TP_PlatLog\\UserFile.json";
 
 
-bool UserStorage::userFileExists() {
-    return QFile::exists(userFilePath);
-}
-
-bool UserStorage::userExists(const QString &username) {
-    QFile file(userFilePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        return false;
+    // Crée le répertoire s'il n'existe pas
+    QDir dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
+    if (!dir.exists()) {
+        dir.mkpath(".");
     }
 
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    QJsonObject root = doc.object();
-    QJsonArray users = root["users"].toArray();
+    // Désérialise les utilisateurs existants dans le fichier
+    users = UserDeserializer::deserializeFromFile(userFilePath);
 
-    for (const QJsonValue &value : users) {
-        QJsonObject user = value.toObject();
-        // Ignorer le super utilisateur dans cette vérification
-        if (user["username"].toString() == username && username != "superuser") {
-            return true;
-        }
-    }
-
-    return false;
+    // Si la liste est vide, ajouter un super utilisateur ici
+    // ou de il faut alors gérer ce cas autrement
 }
 
-void UserStorage::saveUser(const QString &firstName,const QString &lastName,const QString &username, const QString &password) {
-    QFile file(userFilePath);
-    QJsonDocument doc;
-    QJsonObject root;
-    if (file.open(QIODevice::ReadOnly)) {
-        doc = QJsonDocument::fromJson(file.readAll());
-        root = doc.object();
-        file.close();
+void UserStorage::saveUser(const User& user) {
+    // Vérifie si l'utilisateur existe déjà dans la liste
+    auto it = std::find_if(users.begin(), users.end(), [&user](const User& u) {
+        return u.getUsername() == user.getUsername();
+    });
+
+    // Si l'utilisateur n'existe pas, ajoute à la liste
+    if (it == users.end()) {
+        users.append(user);
+    } else {
+        // Optionnel: Mettre à jour l'utilisateur existant ou gérer l'erreur
     }
 
-    // Hasher le mot de passe avant de l'enregistrer
-    QByteArray hashedPassword = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-
-    QJsonArray users = root["users"].toArray();
-    QJsonObject newUser;
-    newUser["firstName"] = firstName;
-    newUser["lastName"] = lastName;
-    newUser["username"] = username;
-    newUser["password"] = QString(hashedPassword.toHex()); // Stocker le hash sous forme hexadécimale
-    users.append(newUser);
-    root["users"] = users;
-    doc.setObject(root);
-
-    if (file.open(QIODevice::WriteOnly)) {
-        file.write(doc.toJson());
-        file.close();
-    }
+    // Sérialise la liste mise à jour des utilisateurs dans le fichier JSON
+    UserSerializer::serializeToFile(users, userFilePath);
 }
-
 
 bool UserStorage::validateUser(const QString &username, const QString &password) {
-    QFile file(userFilePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        return false;
-    }
-
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    QJsonObject root = doc.object();
-    QJsonArray users = root["users"].toArray();
-
     QByteArray hashedPassword = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
     QString hashedPasswordHex = QString(hashedPassword.toHex());
 
-    for (const QJsonValue &value : users) {
-        QJsonObject user = value.toObject();
-        if (user["username"].toString() == username && user["password"].toString() == hashedPasswordHex) {
+    for (const User& user : users) {
+        if (user.getUsername() == username && user.getPassword() == hashedPasswordHex) {
             return true;
         }
     }
-
     return false;
 }
 
-// Méthode pour initialiser le stockage
-void UserStorage::initializeStorage() {
-    if (!userFileExists()) {
-        // Créer le fichier et ajouter le super utilisateur
-        QFile file(userFilePath);
-        if (file.open(QIODevice::WriteOnly)) {
-            QJsonObject root;
-            QJsonArray users;
 
-            // Créer le super utilisateur
-            QJsonObject superUser;
-            superUser["username"] = "SuperUser";
-            QByteArray hashedPassword = QCryptographicHash::hash(QString("Password1!").toUtf8(), QCryptographicHash::Sha256);
-            superUser["password"] = QString(hashedPassword.toHex());
-            users.append(superUser);
+// Getters
+QString UserStorage::getFilename() const {
+    return filename;
+}
 
-            // Ajouter d'autres initialisations ici si nécessaire
+QString UserStorage::getUserFilePath() const {
+    return userFilePath;
+}
 
-            root["users"] = users;
-            QJsonDocument doc(root);
-            file.write(doc.toJson());
-            file.close();
-        }
+QList<User> UserStorage::getUsers() const {
+    return users;
+}
+
+// Setters
+void UserStorage::setFilename(const QString &newFilename) {
+    if (filename != newFilename) {
+        filename = newFilename;
+        // Mettre à jour le chemin complet du fichier basé sur le nouveau nom de fichier
+        userFilePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator() + filename;
+
+        // Recharger les utilisateurs à partir du nouveau fichier
+        users = UserDeserializer::deserializeFromFile(userFilePath);
     }
 }
 
-bool UserStorage::nonSuperUserExists() {
-    QFile file(userFilePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        printf("readOnly");
-        return false;
+
+void UserStorage::setUserFilePath(const QString &newUserFilePath) {
+    if (userFilePath != newUserFilePath) {
+        userFilePath = newUserFilePath;
+        // De même, vous pouvez choisir de recharger les utilisateurs ici
     }
-
-    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
-    QJsonObject root = doc.object();
-    QJsonArray users = root["users"].toArray();
-
-    for (const QJsonValue &userVal : users) {
-        QJsonObject user = userVal.toObject();
-        if (user["username"].toString() != "SuperUser") {
-            printf("!=Superuser found");
-
-            return true; // Un utilisateur autre que le super utilisateur a été trouvé
-        }
-    }
-    printf("Aucun utilisateur autre que le super utilisateur n'a été trouvé");
-
-    return false; // Aucun utilisateur autre que le super utilisateur n'a été trouvé
 }
 
-
+void UserStorage::setUsers(const QList<User> &newUsers) {
+    users = newUsers;
+    // Notez que cela remplacera la liste des utilisateurs en mémoire. Assurez-vous que c'est l'intention.
+}

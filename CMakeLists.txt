@@ -46,6 +46,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         signinform.h signinform.cpp signinform.ui
         loginform.h loginform.cpp loginform.ui
         UserFile.json
+        userdeserializer.h userdeserializer.cpp
+        userserializer.h userserializer.cpp
 
 
 

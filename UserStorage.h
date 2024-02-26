@@ -2,21 +2,29 @@
 #define USERSTORAGE_H
 
 #include <QString>
+#include "User.h"
 
 class UserStorage {
 public:
     UserStorage(const QString &filename);
-    bool userExists(const QString &username); // Vérifie si un utilisateur existe
-    bool userFileExists(); //Verifie si un user file exist
-    void saveUser(const QString &firstName,const QString &lastName,const QString &username, const QString &password); // Enregistre un nouvel utilisateur
+    void saveUser(const User& user); // Enregistre un nouvel utilisateur
     bool validateUser(const QString &username, const QString &password); // Valide les informations de connexion
-    void initializeStorage();
-    bool nonSuperUserExists(); // Vérifie si un utilisateur autre que le super utilisateur existe
+
+    // Getters
+    QString getFilename() const;
+    QString getUserFilePath() const;
+    QList<User> getUsers() const;
+
+    // Setters
+    void setFilename(const QString &filename);
+    void setUserFilePath(const QString &userFilePath);
+    void setUsers(const QList<User> &users);
+
 
 private:
-    QString filename; // Nom du fichier de stockage des utilisateurs
-    QString userFilePath; // Chemin vers le fichier utilisateur
-    // Ajout ici des méthodes et attributs supplémentaires nécessaires pour la gestion des fichiers
+    QString filename; // Nom du fichier pour stocker les utilisateurs
+    QString userFilePath; // Chemin complet vers le fichier des utilisateurs
+    QList<User> users; // Liste des utilisateurs chargés
 };
 
 #endif // USERSTORAGE_H

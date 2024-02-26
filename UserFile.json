@@ -1,24 +1,16 @@
 {
   "users": [
     {
-      "username": "SuperUser",
-      "password": "password",
-      "rights": {
-        "canView": true,
-        "canEdit": true,
-        "isAdmin": true
-      },
-      "profiles": ["profile1", "profile2"]
-    },
-    {
-      "username": "Bebou",
-      "password": "password1",
-      "rights": {
-        "canView": true,
-        "canEdit": true,
-        "isAdmin": true
-      },
-      "profiles": ["profile1", "profile2"]
+        "firstname": "jean",
+        "lastname": "baptiste",
+        "username": "SuperUser",
+        "password": "password",
+        "rights": {
+            "canView": true,
+            "canEdit": true,
+            "isAdmin": true
+        },
+        "profiles": ["profile1", "profile2"]
     }
   ]
 }

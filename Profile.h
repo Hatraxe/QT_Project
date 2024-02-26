@@ -6,6 +6,7 @@
 class Profile {
 public:
     Profile(const QString &name);
+    Profile(const Profile& other);
     ~Profile();
 
     QString getName() const; // Renvoie le nom du profil

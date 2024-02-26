@@ -1,27 +1,27 @@
 #include "Application.h"
 #include "./ui_application.h"
-#include "SignInForm.h"  // Assurez-vous d'avoir le bon nom de fichier d'en-tête
+#include "SignInForm.h"
 #include "LoginForm.h"
+#include <memory> // Nécessaire pour std::make_unique
+using namespace std;
 
-Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Application) {
+
+
+
+Application::Application(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::Application),
+    userStorage(std::make_shared<UserStorage>("UserFile.json")) {  //
+    loginManager = std::make_unique<LoginManager>(userStorage);
     ui->setupUi(this);
-    // Initialisation de UserStorage et LoginManager
     initializeApplication();
 }
 
 Application::~Application() {
-    delete ui;
-    // Assurez-vous que userStorage et loginManager sont correctement initialisés avant d'être utilisés
-    // Si ce ne sont pas des objets dynamiques, ils n'ont pas besoin d'être supprimés avec delete.
-    // delete userStorage;
-    // delete loginManager;
+    delete ui;  // ui est géré manuellement et doit être supprimé
 }
 
 void Application::initializeApplication() {
-
-    // Initialisation de UserStorage et LoginManager
-    userStorage = new UserStorage("UserFile.json");
-    loginManager = new LoginManager(userStorage);
+    // Les objets userStorage et loginManager sont déjà initialisés dans le constructeur
 
     // Initialisation des formulaires
     auto signInForm = new SignInForm(this); // 'this' assure la gestion automatique de la mémoire
@@ -39,11 +39,11 @@ void Application::initializeApplication() {
 }
 
 bool Application::isFirstLaunch() {
-    return !userStorage->nonSuperUserExists();
+    return userStorage->getUsers().size() == 1;
 }
 
 void Application::showUserCreationForm() {
-    // Trouvez l'index de signInForm dans le QStackedWidget
+    // Trouve l'index de signInForm dans le QStackedWidget
     for(int i = 0; i < ui->stackedWidget->count(); ++i) {
         QWidget* widget = ui->stackedWidget->widget(i);
         if (qobject_cast<SignInForm*>(widget)) {
@@ -54,7 +54,7 @@ void Application::showUserCreationForm() {
 }
 
 void Application::showLoginPage() {
-    // Trouvez l'index de loginForm dans le QStackedWidget
+    // Trouve l'index de loginForm dans le QStackedWidget
     for(int i = 0; i < ui->stackedWidget->count(); ++i) {
         QWidget* widget = ui->stackedWidget->widget(i);
         if (qobject_cast<LoginForm*>(widget)) {

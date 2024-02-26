@@ -2,30 +2,30 @@
 #define APPLICATION_H
 
 #include <QMainWindow>
-#include "userstorage.h" // Assurez-vous d'inclure ou de définir cette classe
-#include "loginmanager.h" // Assurez-vous d'inclure ou de définir cette classe
+#include <memory>
+#include "UserStorage.h"
+#include "LoginManager.h"
 
 namespace Ui {
 class Application;
 }
 
-class Application : public QMainWindow
-{
+class Application : public QMainWindow {
     Q_OBJECT
 
 public:
     explicit Application(QWidget *parent = nullptr);
-    ~Application();
+    ~Application() override;
 
 private:
     Ui::Application *ui;
-    UserStorage *userStorage; // Gestion des données utilisateur
-    LoginManager *loginManager; // Gestion de la connexion/déconnexion
+    std::shared_ptr<UserStorage> userStorage;  // Utilisez shared_ptr si UserStorage est partagé
+    std::unique_ptr<LoginManager> loginManager;  // Utilisez unique_ptr si LoginManager n'est pas partagé
 
-    void initializeApplication(); // Initialisation de l'application
-    bool isFirstLaunch(); // Vérifier si c'est le premier lancement
-    void showUserCreationForm(); // Afficher le formulaire de création d'utilisateur
-    void showLoginPage(); // Afficher la page de connexion
+    void initializeApplication();
+    bool isFirstLaunch();
+    void showUserCreationForm();
+    void showLoginPage();
 };
 
 #endif // APPLICATION_H
