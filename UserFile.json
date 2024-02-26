@@ -9,6 +9,16 @@
         "isAdmin": true
       },
       "profiles": ["profile1", "profile2"]
+    },
+    {
+      "username": "Bebou",
+      "password": "password1",
+      "rights": {
+        "canView": true,
+        "canEdit": true,
+        "isAdmin": true
+      },
+      "profiles": ["profile1", "profile2"]
     }
   ]
 }
