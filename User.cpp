@@ -1,65 +1,80 @@
-#include "User.h"
-#include "UserRights.h"
-#include "Profile.h"
+/*!
+ * \file User.cpp
+ * \brief Implémentation de la classe User.
+ *
+ * Définit le comportement des utilisateurs, y compris la gestion des profils et des droits d'accès.
+ */
 
-// Constructeur
+#include "User.h"
+
+/*!
+ * \brief Constructeur complet de User.
+ */
 User::User(const QString &firstName, const QString &lastName, const QString &username,
            const QString &password, const UserRights &rights, const QList<Profile*> &profiles)
     : firstName(firstName), lastName(lastName), username(username),
     password(password), rights(rights), profiles(profiles) {}
 
+/*!
+ * \brief Constructeur alternatif de User sans droits spécifiés.
+ */
+User::User(const QString &firstName, const QString &lastName, const QString &username,
+           const QString &password, const QList<Profile*> &profiles)
+    : firstName(firstName), lastName(lastName), username(username),
+    password(password), rights(), profiles(profiles) {}
+
+/*!
+ * \brief Constructeur de copie de User.
+ */
 User::User(const User& other)
     : firstName(other.firstName), lastName(other.lastName),
     username(other.username), password(other.password),
-    rights(other.rights) {
-    // Copie profonde des profils
+    rights(other.rights), profiles() {
     for (Profile* profile : other.profiles) {
-        profiles.append(new Profile(*profile)); // Supposons que Profile a un constructeur de copie
+        profiles.append(new Profile(*profile));
     }
 }
 
-
-// Destructeur
+/*!
+ * \brief Destructeur de User.
+ */
 User::~User() {
-    qDeleteAll(profiles); // Supprime tous les profils de la liste et libère la mémoire
-    profiles.clear(); // Assurez-vous que la liste est vide après la suppression
+    qDeleteAll(profiles);
+    profiles.clear();
 }
 
-// Setter pour firstName
-void User::setFirstName(const QString &firstName) {
-    this->firstName = firstName;
+/*!
+ * \brief Vérifie si le mot de passe fourni correspond au mot de passe de l'utilisateur.
+ */
+bool User::checkPassword(const QString &password) const {
+    // Hash le mot de passe fourni en utilisant le même algorithme que lors de la création du mot de passe
+    QByteArray hashedInputPassword = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
+
+    // Compare le mot de passe hashé avec le mot de passe hashé stocké
+    return QString::compare(QString(hashedInputPassword.toHex()), this->password) == 0;
 }
 
-// Setter pour lastName
-void User::setLastName(const QString &lastName) {
-    this->lastName = lastName;
-}
 
-// Setter pour username
-void User::setUsername(const QString &username) {
-    this->username = username;
-}
 
-// Setter pour password
-void User::setPassword(const QString &password) {
-    this->password = password;
-}
-
-// Setter pour rights
-void User::setRights(const UserRights &rights) {
-    this->rights = rights;
-}
-
-// Setter pour profiles
-void User::setProfiles(const QList<Profile*> &profiles) {
-    this->profiles = profiles;
-}
-
-// Ajoute un profil à l'utilisateur
+/*!
+ * \brief Ajoute un profil à l'utilisateur.
+ */
 void User::addProfile(Profile *profile) {
-    if (profile != nullptr && !this->profiles.contains(profile)) {
-        this->profiles.append(profile);
+    if (profile && !profiles.contains(profile)) {
+        profiles.append(profile);
     }
+}
+
+/*!
+ * \brief Définit le profil courant de l'utilisateur.
+ */
+void User::setCurrentProfile(Profile *profile) {
+    currentProfile = profile;
+}
+
+// Getter pour currentProfile
+Profile* User::getCurrentProfile() const {
+    return this->currentProfile;
 }
 
 // Renvoie la liste des profils de l'utilisateur
@@ -89,3 +104,7 @@ QString User::getUsername() const {
 QString User::getPassword() const {
     return password;
 }
+QString User::getMail() const {
+    return username;
+}
+

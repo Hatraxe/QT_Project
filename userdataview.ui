@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserDataView</class>
+ <widget class="QWidget" name="UserDataView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>869</width>
+    <height>551</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="Info">
+      <attribute name="title">
+       <string>Tab 1</string>
+      </attribute>
+      <widget class="QPushButton" name="changeProfileButton">
+       <property name="geometry">
+        <rect>
+         <x>431</x>
+         <y>452</y>
+         <width>92</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mofier Profil</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="changePasswordButton">
+       <property name="geometry">
+        <rect>
+         <x>536</x>
+         <y>452</y>
+         <width>178</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Changer de mot de passe</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="logoutButton">
+       <property name="geometry">
+        <rect>
+         <x>721</x>
+         <y>452</y>
+         <width>111</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Se déconnecter</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>10</y>
+         <width>84</width>
+         <height>66</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QComboBox" name="profileComboBox"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="okButton">
+          <property name="text">
+           <string>OK</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>13</x>
+         <y>12</y>
+         <width>202</width>
+         <height>105</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="surnameLabel">
+            <property name="text">
+             <string>Nom : </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="nameLabel">
+            <property name="text">
+             <string>Prénom : </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="mailLabel">
+            <property name="text">
+             <string>adresse mail : </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="rightslabel">
+            <property name="text">
+             <string>Droits utilisateurs : </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="surnameUser">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="nameUser">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="mailUser">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="rightsUser">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="securite">
+      <attribute name="title">
+       <string>Tab 2</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="profils">
+      <attribute name="title">
+       <string>Page</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

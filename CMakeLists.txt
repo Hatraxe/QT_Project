@@ -48,6 +48,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         UserFile.json
         userdeserializer.h userdeserializer.cpp
         userserializer.h userserializer.cpp
+        userdataview.h userdataview.cpp userdataview.ui
 
 
 
