@@ -70,7 +70,7 @@ public:
     QString getLastName() const;
     QString getPassword() const;
     QString getUsername() const;
-    QString getMail() const; // Cette fonction doit être implémentée ou supprimée si non utilisée
+    QString getMail() const;
     QList<Profile*> getProfiles() const;
     UserRights getRights() const;
     Profile* getCurrentProfile() const;

@@ -17,29 +17,29 @@
  * s'il n'existe pas. Prépare le système de stockage pour gérer les utilisateurs.
  */
 UserStorage::UserStorage() {
-    // Obtenir le chemin vers le dossier contenant l'exécutable de l'application
+    // Obtient le chemin vers le dossier contenant l'exécutable de l'application
     QString appFolderPath = QCoreApplication::applicationDirPath();
 
-    // Construire le chemin complet vers le dossier des données de l'application
+    // Construit le chemin complet vers le dossier des données de l'application
     QString dataFolderPath = QDir(appFolderPath).filePath("AppData");
 
-    // Créer le dossier s'il n'existe pas
+    // Crée le dossier s'il n'existe pas
     QDir dataFolder(dataFolderPath);
     if (!dataFolder.exists()) {
         dataFolder.mkpath(".");
     }
 
-    // Construire le chemin complet vers le fichier des utilisateurs
+    // Construit le chemin complet vers le fichier des utilisateurs
     userFilePath = dataFolder.filePath("UserFile.json");
 
-    // Vérifier si le fichier UserFile.json existe
+    // Vérifie si le fichier UserFile.json existe
     QFile userFile(userFilePath);
     if (!userFile.exists()) {
-        // Hasher le mot de passe "password"
+        // Hashe le mot de passe "password"
         QString password = "password";
         QByteArray hashedPassword = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
 
-        // Définir le super utilisateur
+        // Défini le super utilisateur
         QJsonObject superUser;
         superUser["firstname"] = "Super";
         superUser["lastname"] = "User";
@@ -47,22 +47,22 @@ UserStorage::UserStorage() {
         superUser["password"] = QString(hashedPassword.toHex());
         superUser["email"] = "superuser@example.com";
 
-        // Définir les droits du super utilisateur
+        // Défini les droits du super utilisateur
         QJsonObject rights;
         rights["canView"] = true;
         rights["canEdit"] = true;
         rights["isAdmin"] = true;
         superUser["rights"] = rights;
 
-        // Ajouter le super utilisateur à un tableau d'utilisateurs
+        // Ajoute le super utilisateur à un tableau d'utilisateurs
         QJsonArray usersArray;
         usersArray.append(superUser);
 
-        // Créer l'objet JSON racine
+        // Crée l'objet JSON racine
         QJsonObject rootObj;
         rootObj["users"] = usersArray;
 
-        // Écrire l'objet JSON dans le fichier
+        // Écris l'objet JSON dans le fichier
         if (userFile.open(QIODevice::WriteOnly)) {
             QJsonDocument doc(rootObj);
             userFile.write(doc.toJson());
@@ -70,7 +70,7 @@ UserStorage::UserStorage() {
         }
     }
 
-    // Désérialiser les utilisateurs existants dans le fichier
+    // Désérialise les utilisateurs existants dans le fichier
     users = UserDeserializer::deserializeFromFile(userFilePath);
 }
 

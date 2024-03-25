@@ -56,6 +56,8 @@ void UserDataView::refreshUserInfos(){
             ui->rightsUser->setText(rightsList.join(", "));
             if (rightsList.empty()) ui->rightsUser->setText("Aucun droits");
 
+            ui->profileComboBox->clear();
+
             if (!user->getProfiles().isEmpty()) {
                 for (Profile* profile : user->getProfiles()) {
                     ui->profileComboBox->addItem(profile->getName());

@@ -5,7 +5,7 @@
 
 #include "LoginForm.h"
 #include "ui_loginform.h"
-
+#include <QSignalSpy>
 /*!
  * \brief Constructeur de LoginForm qui initialise les composants UI et les connexions de signaux.
  * \param parent Le widget parent de LoginForm.
@@ -20,8 +20,12 @@ LoginForm::LoginForm(QWidget *parent, std::shared_ptr<LoginManager> loginManager
 {
     ui->setupUi(this);
 
+    // QSignalSpy spy(ui->pushButton_Login, &QPushButton::clicked);
+
     // Connecte le bouton de connexion à son slot
     connect(ui->pushButton_Login, &QPushButton::clicked, this, &LoginForm::on_pushButton_Login_clicked);
+    qDebug() << "Connection du signal clicked au slot on push button clicked";
+
     // Connecte le bouton "Mot de passe oublié" à son slot
     connect(ui->pushButton_MdpOublie, &QPushButton::clicked, this, &LoginForm::on_pushButton_MdpOublie_clicked);
     // Connecte le bouton d'inscription à son slot
@@ -43,6 +47,8 @@ LoginForm::~LoginForm() {
 void LoginForm::on_pushButton_Login_clicked() {
     QString login = ui->lineEdit_Login_Email->text();
     QString motDePasse = ui->lineEdit_Mdp->text();
+    qDebug() << "on push button login clicked";
+
 
     // Tente de se connecter avec le LoginManager
     if (loginManager && loginManager->login(login, motDePasse)) {

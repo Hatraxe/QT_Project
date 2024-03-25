@@ -26,22 +26,15 @@ LoginManager::LoginManager(std::shared_ptr<UserStorage> storage) : storage(std::
 bool LoginManager::login(const QString &username, const QString &password) {
     auto users = storage->getUsers();
     for (const auto& user : users) {
-        QByteArray hashedInputPassword = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-        QString hashedInputPasswordHex = QString(hashedInputPassword.toHex());
 
-        qDebug() << "Tentative de connexion pour l'utilisateur:" << username;
-        qDebug() << "Nom d'utilisateur entré:" << username;
-        qDebug() << "Nom d'utilisateur stocké:" << user.getUsername();
-        qDebug() << "Mot de passe hashé entré:" << hashedInputPasswordHex;
-        qDebug() << "Mot de passe hashé stocké:" << user.getPassword();
 
         if (user.getUsername() == username && user.checkPassword(password)) {
             currentUser = std::make_shared<User>(user);
-            qDebug() << "Connexion réussie pour l'utilisateur:" << username;
+            // qDebug() << "Connexion réussie pour l'utilisateur:" << username;
             return true;
         }
         else{
-            qDebug() << "Échec de la connexion pour l'utilisateur:" << username;
+            // qDebug() << "Échec de la connexion pour l'utilisateur:" << username;
         }
     }
     return false;

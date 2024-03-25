@@ -8,6 +8,7 @@
 #include "SignInForm.h"
 #include "LoginForm.h"
 #include "userdataview.h"
+using namespace std;
 
 /*!
  * \brief Constructeur de Application.
@@ -49,6 +50,7 @@ void Application::initializeApplication() {
 
     // Connexion des signaux et des slots
     connect(signInForm, &SignInForm::userCreated, this, &Application::showLoginPage);
+    qDebug() << "connection du signal usercreated au slot ShowLoginPage";
     connect(loginForm, &LoginForm::userConnected, this, &Application::showUserDataViewPage);
     connect(loginForm, &LoginForm::userConnected, userDataView, &UserDataView::refreshUserInfos);
     connect(userDataView, &UserDataView::logoutRequested, this, &Application::handleLogout);

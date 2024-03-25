@@ -51,9 +51,11 @@ public:
      * Cette méthode recharge les données depuis la base de données et met à jour l'affichage.
      */
     void refreshData();
+    void setCurrentTable(const QString &tableName);
 
 private:
     QSqlDatabase db; ///< L'objet de connexion à la base de données.
+    QString currentTableName; // Nom de la table actuellement affichée
 
     /*!
      * \brief Configure l'interface utilisateur du visualiseur.
@@ -67,7 +69,7 @@ private:
      *
      * Cette méthode utilise un QSqlTableModel pour lier les données de la base de données au QTableView.
      */
-    void loadData();
+    void loadData(const QString &tableName);
 };
 
 #endif // DATABASEVIEWER_H

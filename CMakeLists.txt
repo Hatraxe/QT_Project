@@ -14,7 +14,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 
 # Trouver les paquets Qt nécessaires
-find_package(Qt6 COMPONENTS Core Sql REQUIRED)
+find_package(Qt6 COMPONENTS Core Sql Test REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -73,7 +73,7 @@ endif()
 
 # Utiliser les modules Qt trouvés
 
-target_link_libraries(TP_PlatLog PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(TP_PlatLog PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Test)
 
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

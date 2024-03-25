@@ -50,8 +50,11 @@ bool DatabaseViewer::connectToDatabase(const QString &databasePath) {
  * Cette méthode appelle loadData pour recharger les données de la base de données et mettre à jour l'affichage.
  */
 void DatabaseViewer::refreshData() {
-    loadData();
+    if (!currentTableName.isEmpty()) {
+        loadData(currentTableName);
+    }
 }
+
 
 /*!
  * \brief Configure l'interface utilisateur du visualiseur.
@@ -61,17 +64,21 @@ void DatabaseViewer::refreshData() {
 void DatabaseViewer::setupUi() {
     auto layout = new QVBoxLayout(this);
     auto tableView = new QTableView(this);
+    tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     layout->addWidget(tableView);
 }
+
 
 /*!
  * \brief Charge les données de la table spécifiée dans la base de données et les affiche.
  *
  * Utilise un QSqlTableModel pour lier les données de la table à un QTableView pour l'affichage.
  */
-void DatabaseViewer::loadData() {
+void DatabaseViewer::loadData(const QString &tableName) {
     auto model = new QSqlTableModel(this, db);
-    model->setTable("nom_de_votre_table");
+    model->setTable(tableName);
     model->select();
 
     QTableView *tableView = findChild<QTableView *>();
@@ -79,3 +86,11 @@ void DatabaseViewer::loadData() {
         tableView->setModel(model);
     }
 }
+
+
+void DatabaseViewer::setCurrentTable(const QString &tableName) {
+    currentTableName = tableName;
+    loadData(currentTableName);
+}
+
+
