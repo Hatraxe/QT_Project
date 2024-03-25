@@ -1,25 +1,34 @@
 {
-  "users": [
-    {
-      "username": "SuperUser",
-      "password": "password",
-      "rights": {
-        "canView": true,
-        "canEdit": true,
-        "isAdmin": true
-      },
-      "profiles": ["profile1", "profile2"]
-    },
-    {
-      "username": "Bebou",
-      "password": "password1",
-      "rights": {
-        "canView": true,
-        "canEdit": true,
-        "isAdmin": true
-      },
-      "profiles": ["profile1", "profile2"]
-    }
-  ]
-
+    "users": [
+        {
+            "firstname": "SuperUser",
+            "lastname": "SuperUser",
+            "password": "8fea715f99a41eb5e735b7d9e50face404ce840538e5476af1c80237c775e348",
+            "profiles": [
+                "profile1",
+                "profile2"
+            ],
+            "rights": {
+                "canEdit": true,
+                "canView": true,
+                "isAdmin": true
+            },
+            "username": "SuperUser"
+        },
+        {
+            "firstname": "Amoroso",
+            "lastname": "Adrien",
+            "password": "f4f263e439cf40925e6a412387a9472a6773c2580212a4fb50d224d3a817de17",
+            "profiles": [
+                "profil1",
+                "profil2"
+            ],
+            "rights": {
+                "canEdit": false,
+                "canView": false,
+                "isAdmin": false
+            },
+            "username": "adrien@gmail.com"
+        }
+    ]
 }

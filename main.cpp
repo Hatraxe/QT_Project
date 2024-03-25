@@ -1,14 +1,10 @@
-#include <QApplication>
-#include "application.h" // Assurez-vous d'inclure votre classe Application
+#include "application.h"
+#include "qapplication.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    Application application; // Crée une instance de votre classe Application
-   // LoginForm loginForm;
-   // loginForm.show();
+    Application application;
     application.show(); // Affiche la fenêtre principale
-   // SignInForm sin;
-   // sin.show();
     return app.exec();
 }
