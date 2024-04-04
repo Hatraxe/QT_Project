@@ -5,7 +5,10 @@
 
 #include "UserDataView.h"
 #include "ui_userdataview.h"
-#include <QMessageBox>
+#include <QFileDialog>
+#include <QSqlQueryModel>
+#include <QSqlTableModel>
+#include <QSqlDatabase>
 
 /*!
  * \brief Constructeur de UserDataView.
@@ -17,7 +20,8 @@
 UserDataView::UserDataView(QWidget *parent, std::shared_ptr<LoginManager> loginManager)
     : QWidget(parent),
     ui(new Ui::UserDataView),
-    loginManager(loginManager) {
+    loginManager(loginManager) ,
+    databaseManager(std::make_shared<DatabaseManager>()) {
     ui->setupUi(this);
 
     // Connexion des boutons aux slots correspondants
@@ -25,6 +29,14 @@ UserDataView::UserDataView(QWidget *parent, std::shared_ptr<LoginManager> loginM
     connect(ui->changePasswordButton, &QPushButton::clicked, this, &UserDataView::on_changePasswordButton_clicked);
     connect(ui->changeProfileButton, &QPushButton::clicked, this, &UserDataView::on_changeProfileButton_clicked);
     connect(ui->okButton, &QPushButton::clicked, this, &UserDataView::on_okButton_clicked);
+
+
+    connect(ui->ajouterPushButton, &QPushButton::clicked, this, &UserDataView::on_ajouterPushButton_clicked);
+    connect(ui->supprimerPushButton, &QPushButton::clicked, this, &UserDataView::on_supprimerPushButton_clicked);
+    connect(ui->executePushButton, &QPushButton::clicked, this, &UserDataView::on_executePushButton_clicked);
+    connect(ui->dispoBddComboBox, &QComboBox::currentIndexChanged, this, &UserDataView::on_dispoBddComboBox_currentIndexChanged);
+    connect(ui->tablesBddComboBox, &QComboBox::currentTextChanged, this, &UserDataView::displayTableContent);
+
 }
 
 /*!
@@ -110,3 +122,119 @@ void UserDataView::on_okButton_clicked() {
         }
     }
 }
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+void UserDataView::on_ajouterPushButton_clicked() {
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Ouvrir une base de données"), "", tr("Base de données SQLite (*.sqlite *.db)"));
+    if (!fileName.isEmpty()) {
+        databaseManager->addDatabase(fileName);
+        qDebug() << "ajout de la db";
+
+        refreshDatabasesList();
+    }
+}
+
+void UserDataView::on_supprimerPushButton_clicked() {
+    QString currentDb = ui->dispoBddComboBox->currentText();
+    databaseManager->removeDatabase(currentDb);
+    refreshDatabasesList();
+}
+
+void UserDataView::on_executePushButton_clicked() {
+    QString queryStr = ui->requeteSQLText->text().trimmed();
+    QString connectionName = ui->dispoBddComboBox->currentText();
+
+    // Validation de base des requêtes pour limiter les opérations à "SELECT"
+    if (!queryStr.toUpper().startsWith("SELECT")) {
+        QMessageBox::warning(this, tr("Opération non autorisée"), tr("Seules les opérations de sélection (SELECT) sont autorisées."));
+        return;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database(connectionName);
+    if (!db.isOpen()) {
+        QMessageBox::critical(this, tr("Erreur de base de données"), tr("La connexion à la base de données est fermée ou invalide."));
+        return;
+    }
+
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery(queryStr, db);
+
+    if (model->lastError().isValid()) {
+        QMessageBox::critical(this, tr("Erreur de requête SQL"), model->lastError().text());
+        delete model; // Assurez-vous de supprimer le modèle en cas d'erreur pour éviter les fuites de mémoire
+    } else if (model->rowCount() == 0) {
+        QMessageBox::information(this, tr("Requête SQL"), tr("La requête a été exécutée avec succès, mais n'a retourné aucun résultat."));
+        ui->vueContenuBddTableView->setModel(model);
+    } else {
+        QMessageBox::information(this, tr("Requête SQL"), tr("La requête a été exécutée avec succès."));
+        ui->vueContenuBddTableView->setModel(model);
+    }
+
+    // Ajustements de l'interface de la vue
+    ui->vueContenuBddTableView->resizeColumnsToContents();
+    ui->vueContenuBddTableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->vueContenuBddTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+}
+
+
+void UserDataView::on_dispoBddComboBox_currentIndexChanged(int index) {
+    Q_UNUSED(index);
+    refreshTablesList();
+}
+
+void UserDataView::refreshDatabasesList() {
+    ui->dispoBddComboBox->clear(); // Efface les éléments existants
+    QStringList dbNames = databaseManager->getDatabaseNames();
+    ui->dispoBddComboBox->addItems(dbNames); // Ajoute les noms des bases de données disponibles
+
+    if (!dbNames.isEmpty()) {
+        refreshTablesList(); // Met à jour la liste des tables pour la première base de données par défaut
+    }
+}
+
+
+void UserDataView::refreshTablesList() {
+    ui->tablesBddComboBox->clear(); // Efface les éléments existants
+
+    QString selectedDb = ui->dispoBddComboBox->currentText();
+    if (!selectedDb.isEmpty()) {
+        QStringList tableNames = databaseManager->listTables(selectedDb);
+        ui->tablesBddComboBox->addItems(tableNames); // Ajoute les noms des tables de la base de données sélectionnée
+    }
+}
+
+
+void UserDataView::displayTableContent(const QString &tableName) {
+    if (tableName.isEmpty()) {
+        return;
+    }
+
+    QString selectedDb = ui->dispoBddComboBox->currentText();
+    QSqlDatabase db = QSqlDatabase::database(selectedDb);
+    if (!db.isOpen()) {
+        // Tente de réouvrir la base de données si elle n'est pas déjà ouverte
+        if (!db.open()) {
+            qDebug() << "Erreur lors de la réouverture de la base de données : " << db.lastError().text();
+            return;
+        }
+    }
+
+    QSqlTableModel *model = new QSqlTableModel(this, db);
+    model->setTable(tableName);
+    model->select();
+
+    // Pour afficher toutes les modifications apportées aux données immédiatement dans la vue
+    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+
+    ui->vueContenuBddTableView->setModel(model);
+
+    // ajuste l'apparence et le comportement de la tableView
+    ui->vueContenuBddTableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->vueContenuBddTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->vueContenuBddTableView->resizeColumnsToContents();
+}
+
+
+
+

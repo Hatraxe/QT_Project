@@ -10,8 +10,10 @@
 #define USERDATAVIEW_H
 
 #include <QWidget>
+#include <QMessageBox>
 #include <memory>
 #include "LoginManager.h"
+#include "DatabaseManager.h"
 
 /*!
  * Espace de noms Ui. Utilisé par le système UIC de Qt pour gérer l'interface utilisateur.
@@ -54,6 +56,11 @@ public:
      */
     void refreshUserInfos();
 
+
+    void setDatabaseManager(std::shared_ptr<DatabaseManager> dbManager);
+
+
+
 signals:
     /*!
      * \brief Signal émis lorsque l'utilisateur demande à se déconnecter.
@@ -81,9 +88,21 @@ private slots:
      */
     void on_okButton_clicked();
 
+
+
+    void on_ajouterPushButton_clicked();
+    void on_supprimerPushButton_clicked();
+    void on_executePushButton_clicked();
+    void on_dispoBddComboBox_currentIndexChanged(int index);
+    void displayTableContent(const QString &tableName);
+
+
 private:
     Ui::UserDataView *ui; ///< Pointeur vers l'interface utilisateur générée par UIC.
     std::shared_ptr<LoginManager> loginManager; ///< Gestionnaire de connexion pour accéder à l'utilisateur connecté.
+    std::shared_ptr<DatabaseManager> databaseManager; // Gère les interactions avec les bases de données
+    void refreshDatabasesList(); // Met à jour la liste des bases de données disponibles
+    void refreshTablesList(); // Met à jour la liste des tables pour la base de données sélectionnée
 };
 
 #endif // USERDATAVIEW_H
