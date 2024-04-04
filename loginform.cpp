@@ -23,13 +23,13 @@ LoginForm::LoginForm(QWidget *parent, std::shared_ptr<LoginManager> loginManager
     // QSignalSpy spy(ui->pushButton_Login, &QPushButton::clicked);
 
     // Connecte le bouton de connexion à son slot
-    connect(ui->pushButton_Login, &QPushButton::clicked, this, &LoginForm::on_pushButton_Login_clicked);
+    connect(ui->pushButton_Login, &QPushButton::clicked, this, &LoginForm::login);
     qDebug() << "Connection du signal clicked au slot on push button clicked";
 
     // Connecte le bouton "Mot de passe oublié" à son slot
-    connect(ui->pushButton_MdpOublie, &QPushButton::clicked, this, &LoginForm::on_pushButton_MdpOublie_clicked);
+    connect(ui->pushButton_MdpOublie, &QPushButton::clicked, this, &LoginForm::mdpOublie);
     // Connecte le bouton d'inscription à son slot
-    connect(ui->signUpButton, &QPushButton::clicked, this, &LoginForm::on_signUpButton_clicked);
+    connect(ui->signUpButton, &QPushButton::clicked, this, &LoginForm::signInSignal);
 }
 
 /*!
@@ -44,7 +44,7 @@ LoginForm::~LoginForm() {
  *
  * Si la connexion est réussie, émet le signal userConnected. Sinon, affiche une alerte.
  */
-void LoginForm::on_pushButton_Login_clicked() {
+void LoginForm::login() {
     QString login = ui->lineEdit_Login_Email->text();
     QString motDePasse = ui->lineEdit_Mdp->text();
     qDebug() << "on push button login clicked";
@@ -64,7 +64,7 @@ void LoginForm::on_pushButton_Login_clicked() {
  *
  * Ce slot est déclenché par un clic sur le bouton "Mot de passe oublié".
  */
-void LoginForm::on_pushButton_MdpOublie_clicked() {
+void LoginForm::mdpOublie() {
     QMessageBox::information(this, "Récupération du mot de passe", "Pour récupérer votre mot de passe, veuillez contacter l'administrateur.");
 }
 
@@ -73,6 +73,6 @@ void LoginForm::on_pushButton_MdpOublie_clicked() {
  *
  * Ce slot est déclenché par un clic sur le bouton "S'inscrire".
  */
-void LoginForm::on_signUpButton_clicked() {
+void LoginForm::signInSignal() {
     emit signUpRequested();
 }

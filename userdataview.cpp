@@ -24,17 +24,17 @@ UserDataView::UserDataView(QWidget *parent, std::shared_ptr<LoginManager> loginM
     databaseManager(std::make_shared<DatabaseManager>()) {
     ui->setupUi(this);
 
-    // Connexion des boutons aux slots correspondants
-    connect(ui->logoutButton, &QPushButton::clicked, this, &UserDataView::on_logoutButton_clicked);
-    connect(ui->changePasswordButton, &QPushButton::clicked, this, &UserDataView::on_changePasswordButton_clicked);
-    connect(ui->changeProfileButton, &QPushButton::clicked, this, &UserDataView::on_changeProfileButton_clicked);
-    connect(ui->okButton, &QPushButton::clicked, this, &UserDataView::on_okButton_clicked);
+    // Connexion des boutons aux slots correspondants pour le Tab Infos utilisateur
+    connect(ui->logoutButton, &QPushButton::clicked, this, &UserDataView::deconnexionClic);
+    connect(ui->changePasswordButton, &QPushButton::clicked, this, &UserDataView::changePasswordClic);
+    connect(ui->changeProfileButton, &QPushButton::clicked, this, &UserDataView::changeProfilClic);
+    connect(ui->okButton, &QPushButton::clicked, this, &UserDataView::okClic);
 
-
-    connect(ui->ajouterPushButton, &QPushButton::clicked, this, &UserDataView::on_ajouterPushButton_clicked);
-    connect(ui->supprimerPushButton, &QPushButton::clicked, this, &UserDataView::on_supprimerPushButton_clicked);
-    connect(ui->executePushButton, &QPushButton::clicked, this, &UserDataView::on_executePushButton_clicked);
-    connect(ui->dispoBddComboBox, &QComboBox::currentIndexChanged, this, &UserDataView::on_dispoBddComboBox_currentIndexChanged);
+    // Pour le Tab Gestion des Bdd
+    connect(ui->ajouterPushButton, &QPushButton::clicked, this, &UserDataView::ajouterClic);
+    connect(ui->supprimerPushButton, &QPushButton::clicked, this, &UserDataView::supprimerClic);
+    connect(ui->executePushButton, &QPushButton::clicked, this, &UserDataView::executerClic);
+    connect(ui->dispoBddComboBox, &QComboBox::currentIndexChanged, this, &UserDataView::indexComboBoxBddChanged);
     connect(ui->tablesBddComboBox, &QComboBox::currentTextChanged, this, &UserDataView::displayTableContent);
 
 }
@@ -80,6 +80,12 @@ void UserDataView::refreshUserInfos(){
 
                 ui->okButton->setEnabled(false);
             }
+
+            // On peut imaginer ici une gestion des droits utilisateurs plus poussée.
+
+            ui->ajouterPushButton->setEnabled(user->getRights().canView());
+            ui->supprimerPushButton->setEnabled(user->getRights().canView());
+            ui->executePushButton->setEnabled(user->getRights().canView());
         }
     }
 }
@@ -87,22 +93,24 @@ void UserDataView::refreshUserInfos(){
 /*!
  * \brief Gère l'action de déconnexion demandée par l'utilisateur.
  */
-void UserDataView::on_logoutButton_clicked() {
+void UserDataView::deconnexionClic() {
     emit logoutRequested();
 }
 
 /*!
  * \brief Ouvre un dialogue pour changer le mot de passe de l'utilisateur.
  */
-void UserDataView::on_changePasswordButton_clicked() {
+void UserDataView::changePasswordClic() {
     // Implémentation future
+    // Nous ne l'avons pas implémenté car pas nécessaire mais cela peut être intéressant pour le futur
 }
 
 /*!
  * \brief Ouvre un dialogue pour permettre à l'utilisateur de modifier son profil.
  */
-void UserDataView::on_changeProfileButton_clicked() {
+void UserDataView::changeProfilClic() {
     // Implémentation future
+    // idem
 }
 
 /*!
@@ -110,7 +118,7 @@ void UserDataView::on_changeProfileButton_clicked() {
  *
  * Met à jour le profil actuel de l'utilisateur avec le profil sélectionné dans la comboBox.
  */
-void UserDataView::on_okButton_clicked() {
+void UserDataView::okClic() {
     if (loginManager) {
         auto user = loginManager->getCurrentUser();
         if (user) {
@@ -125,7 +133,7 @@ void UserDataView::on_okButton_clicked() {
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-void UserDataView::on_ajouterPushButton_clicked() {
+void UserDataView::ajouterClic() {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Ouvrir une base de données"), "", tr("Base de données SQLite (*.sqlite *.db)"));
     if (!fileName.isEmpty()) {
         databaseManager->addDatabase(fileName);
@@ -135,18 +143,48 @@ void UserDataView::on_ajouterPushButton_clicked() {
     }
 }
 
-void UserDataView::on_supprimerPushButton_clicked() {
-    QString currentDb = ui->dispoBddComboBox->currentText();
-    databaseManager->removeDatabase(currentDb);
+void UserDataView::supprimerClic() {
+    auto user = loginManager->getCurrentUser();
+    // Vérifie si l'utilisateur a le droit de modifier (inclut la suppression)
+    if (!user || !user->getRights().canEdit()) {
+        QMessageBox::warning(this, tr("Accès refusé"), tr("Vous n'avez pas les droits nécessaires pour supprimer une base de données."));
+        return;
+    }
+
+    QString currentDbName = ui->dispoBddComboBox->currentText();
+    // Vérifie si le modèle actuel utilise la base de données à supprimer
+    auto model = dynamic_cast<QSqlQueryModel*>(ui->vueContenuBddTableView->model());
+    if (model) {
+        // Désassocie le modèle de la vue avant de supprimer la base de données
+        ui->vueContenuBddTableView->setModel(nullptr);
+        delete model;
+    }
+
+    // Tentative de suppression de la base de données
+    if (databaseManager->removeDatabase(currentDbName)) {
+        qDebug() << "La base de données " << currentDbName << " a été supprimée avec succès.";
+    } else {
+        qDebug() << "Échec de la suppression de la base de données " << currentDbName << ".";
+    }
+
     refreshDatabasesList();
 }
 
-void UserDataView::on_executePushButton_clicked() {
+
+void UserDataView::executerClic() {
+    auto user = loginManager->getCurrentUser();
+    if (!user || !user->getRights().canView()) {
+        QMessageBox::warning(this, tr("Accès refusé"), tr("Vous n'avez pas les droits nécessaires pour exécuter cette action."));
+        return;
+    }
+
+
+
     QString queryStr = ui->requeteSQLText->text().trimmed();
     QString connectionName = ui->dispoBddComboBox->currentText();
 
-    // Validation de base des requêtes pour limiter les opérations à "SELECT"
-    if (!queryStr.toUpper().startsWith("SELECT")) {
+    // L'administrateur peut exécuter toute requête; les autres utilisateurs sont limités à "SELECT"
+    if (!user->getRights().isAdmin() && !queryStr.toUpper().startsWith("SELECT")) {
         QMessageBox::warning(this, tr("Opération non autorisée"), tr("Seules les opérations de sélection (SELECT) sont autorisées."));
         return;
     }
@@ -178,7 +216,7 @@ void UserDataView::on_executePushButton_clicked() {
 }
 
 
-void UserDataView::on_dispoBddComboBox_currentIndexChanged(int index) {
+void UserDataView::indexComboBoxBddChanged(int index) {
     Q_UNUSED(index);
     refreshTablesList();
 }

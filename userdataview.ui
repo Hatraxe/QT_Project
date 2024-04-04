@@ -24,7 +24,7 @@
      </property>
      <widget class="QWidget" name="Info">
       <attribute name="title">
-       <string>Tab 1</string>
+       <string>Infos Utilisateur</string>
       </attribute>
       <widget class="QPushButton" name="changeProfileButton">
        <property name="geometry">
@@ -166,7 +166,7 @@
      </widget>
      <widget class="QWidget" name="DBviewer">
       <attribute name="title">
-       <string>Tab 2</string>
+       <string>Gestion de la Bdd</string>
       </attribute>
       <widget class="QComboBox" name="dispoBddComboBox">
        <property name="geometry">
@@ -191,9 +191,9 @@
       <widget class="QTableView" name="vueContenuBddTableView">
        <property name="geometry">
         <rect>
-         <x>410</x>
+         <x>290</x>
          <y>20</y>
-         <width>421</width>
+         <width>541</width>
          <height>351</height>
         </rect>
        </property>

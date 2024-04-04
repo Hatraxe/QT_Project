@@ -71,29 +71,29 @@ private slots:
     /*!
      * \brief Gère le clic sur le bouton de changement de profil.
      */
-    void on_changeProfileButton_clicked();
+    void changeProfilClic();
 
     /*!
      * \brief Gère le clic sur le bouton de déconnexion.
      */
-    void on_logoutButton_clicked();
+    void deconnexionClic();
 
     /*!
      * \brief Gère le clic sur le bouton de changement de mot de passe.
      */
-    void on_changePasswordButton_clicked();
+    void changePasswordClic();
 
     /*!
      * \brief Gère le clic sur le bouton "OK" pour confirmer une action.
      */
-    void on_okButton_clicked();
+    void okClic();
 
 
 
-    void on_ajouterPushButton_clicked();
-    void on_supprimerPushButton_clicked();
-    void on_executePushButton_clicked();
-    void on_dispoBddComboBox_currentIndexChanged(int index);
+    void ajouterClic();
+    void supprimerClic();
+    void executerClic();
+    void indexComboBoxBddChanged(int index);
     void displayTableContent(const QString &tableName);
 
 
