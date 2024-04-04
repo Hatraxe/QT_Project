@@ -33,11 +33,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         User.h
         UserRights.h
         Profile.h
-        DatabaseViewer.h
         Application.cpp
         application.ui
 
-        DatabaseViewer.cpp
+
         LoginManager.cpp
         Profil.cpp
         User.cpp
@@ -48,7 +47,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         UserFile.json
         userdeserializer.h userdeserializer.cpp
         userserializer.h userserializer.cpp
-        userdataview.h userdataview.cpp userdataview.ui
+        databasemanager.cpp databasemanager.h userdataview.cpp userdataview.h userdataview.ui
+
 
 
 

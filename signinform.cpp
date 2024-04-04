@@ -21,7 +21,7 @@ SignInForm::SignInForm(QWidget *parent, std::shared_ptr<UserStorage> storage)
     : QWidget(parent), ui(new Ui::SignInForm), userStorage(storage) {
     ui->setupUi(this);
     // Connecte le bouton d'inscription à son slot
-    connect(ui->signInButton, &QPushButton::clicked, this, &SignInForm::on_signInButton_clicked);
+    connect(ui->signInButton, &QPushButton::clicked, this, &SignInForm::signIn);
 }
 
 /*!
@@ -39,7 +39,7 @@ SignInForm::~SignInForm() {
  * Récupère les informations de l'utilisateur depuis l'interface, vérifie la validité des données,
  * crée un nouvel utilisateur, et informe de la réussite ou de l'échec de l'opération.
  */
-void SignInForm::on_signInButton_clicked() {
+void SignInForm::signIn() {
     // Récupération et validation des valeurs entrées par l'utilisateur
     QString firstname = ui->lineEdit_Nom->text();
     QString lastname = ui->lineEdit_Prenom->text();
@@ -72,9 +72,13 @@ void SignInForm::on_signInButton_clicked() {
     QByteArray passwordHash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
 
 
+    UserRights rights;
+    rights.setCanView(true); // L'utilisateur peut uniquement visualiser
+    rights.setCanEdit(false); // L'utilisateur ne peut pas éditer
+    rights.setIsAdmin(false); // L'utilisateur n'est pas administrateur
 
     // Création de l'objet User
-    User newUser(firstname, lastname, email, QString(passwordHash.toHex()), profiles);
+    User newUser(firstname, lastname, email, QString(passwordHash.toHex()), rights, profiles);
 
     // Sérialisation du nouvel utilisateur
 

@@ -24,7 +24,7 @@
      </property>
      <widget class="QWidget" name="Info">
       <attribute name="title">
-       <string>Tab 1</string>
+       <string>Infos Utilisateur</string>
       </attribute>
       <widget class="QPushButton" name="changeProfileButton">
        <property name="geometry">
@@ -164,10 +164,89 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="securite">
+     <widget class="QWidget" name="DBviewer">
       <attribute name="title">
-       <string>Tab 2</string>
+       <string>Gestion de la Bdd</string>
       </attribute>
+      <widget class="QComboBox" name="dispoBddComboBox">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="tablesBddComboBox">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTableView" name="vueContenuBddTableView">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>20</y>
+         <width>541</width>
+         <height>351</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="requeteSQLText">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>440</y>
+         <width>361</width>
+         <height>28</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="executePushButton">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>440</y>
+         <width>83</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Executer</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ajouterPushButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>140</y>
+         <width>141</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ajouter une Bdd</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="supprimerPushButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>200</y>
+         <width>141</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Supprimer la Bdd</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="profils">
       <attribute name="title">

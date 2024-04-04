@@ -55,21 +55,21 @@ private slots:
      *
      * Vérifie les informations de connexion et émet userConnected si les identifiants sont valides.
      */
-    void on_pushButton_Login_clicked();
+    void login();
 
     /*!
      * \brief Slot activé lorsque l'utilisateur clique sur "Mot de passe oublié".
      *
      * Affiche un message indiquant la procédure à suivre pour récupérer son mot de passe.
      */
-    void on_pushButton_MdpOublie_clicked();
+    void mdpOublie();
 
     /*!
      * \brief Slot activé lorsque l'utilisateur souhaite s'inscrire.
      *
      * Émet le signal signUpRequested pour demander l'affichage du formulaire d'inscription.
      */
-    void on_signUpButton_clicked();
+    void signInSignal();
 
 private:
     Ui::LoginForm *ui; ///< Pointeur vers l'interface utilisateur générée par uic.

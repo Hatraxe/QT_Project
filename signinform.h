@@ -62,7 +62,7 @@ private slots:
      *
      * Vérifie les informations fournies et crée un nouveau compte utilisateur si elles sont valides.
      */
-    void on_signInButton_clicked();
+    void signIn();
 
 private:
     Ui::SignInForm *ui; ///< Pointeur vers l'interface utilisateur générée par uic.
