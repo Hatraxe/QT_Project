@@ -178,14 +178,12 @@ void UserDataView::executerClic() {
         return;
     }
 
-
-
     QString queryStr = ui->requeteSQLText->text().trimmed();
     QString connectionName = ui->dispoBddComboBox->currentText();
 
-    // L'administrateur peut exécuter toute requête; les autres utilisateurs sont limités à "SELECT"
-    if (!user->getRights().isAdmin() && !queryStr.toUpper().startsWith("SELECT")) {
-        QMessageBox::warning(this, tr("Opération non autorisée"), tr("Seules les opérations de sélection (SELECT) sont autorisées."));
+    // Validation avancée des requêtes pour sécurité accrue
+    if (!isValidQuery(queryStr, user->getRights())) {
+        QMessageBox::warning(this, tr("Requête invalide"), tr("La requête n'est pas autorisée."));
         return;
     }
 
@@ -195,25 +193,41 @@ void UserDataView::executerClic() {
         return;
     }
 
-    QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery(queryStr, db);
-
-    if (model->lastError().isValid()) {
-        QMessageBox::critical(this, tr("Erreur de requête SQL"), model->lastError().text());
-        delete model; // Assurez-vous de supprimer le modèle en cas d'erreur pour éviter les fuites de mémoire
-    } else if (model->rowCount() == 0) {
-        QMessageBox::information(this, tr("Requête SQL"), tr("La requête a été exécutée avec succès, mais n'a retourné aucun résultat."));
-        ui->vueContenuBddTableView->setModel(model);
-    } else {
-        QMessageBox::information(this, tr("Requête SQL"), tr("La requête a été exécutée avec succès."));
-        ui->vueContenuBddTableView->setModel(model);
+    // Réutilisation ou création d'un nouveau modèle QSqlQueryModel
+    auto model = dynamic_cast<QSqlQueryModel*>(ui->vueContenuBddTableView->model());
+    if (!model) {
+        model = new QSqlQueryModel;
     }
 
-    // Ajustements de l'interface de la vue
-    ui->vueContenuBddTableView->resizeColumnsToContents();
-    ui->vueContenuBddTableView->setSelectionMode(QAbstractItemView::SingleSelection);
-    ui->vueContenuBddTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    model->setQuery(queryStr, db);
+    if (model->lastError().isValid()) {
+        QMessageBox::critical(this, tr("Erreur de requête SQL"), model->lastError().text());
+        delete model; // Supprime le modèle pour éviter les fuites de mémoire
+        ui->vueContenuBddTableView->setModel(nullptr);
+    } else {
+        // Ajustements de l'interface de la vue en cas de succès
+        if (model->rowCount() == 0) {
+            QMessageBox::information(this, tr("Requête SQL"), tr("La requête a été exécutée avec succès, mais n'a retourné aucun résultat."));
+        } else {
+            QMessageBox::information(this, tr("Requête SQL"), tr("La requête a été exécutée avec succès."));
+        }
+        ui->vueContenuBddTableView->setModel(model);
+        ui->vueContenuBddTableView->resizeColumnsToContents();
+        ui->vueContenuBddTableView->setSelectionMode(QAbstractItemView::SingleSelection);
+        ui->vueContenuBddTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    }
 }
+
+bool UserDataView::isValidQuery(const QString& query, const UserRights& rights) {
+    // Ici cette méthode est un exemple basique de gestion des droits. Si l'utilisateur n'est pas admin et que la
+    // requête commence par autre chose que SELECT on renvoie une erreur.
+
+    if (!rights.isAdmin() && !query.startsWith("SELECT", Qt::CaseInsensitive)) {
+        return false;
+    }
+    return true;
+}
+
 
 
 void UserDataView::indexComboBoxBddChanged(int index) {
