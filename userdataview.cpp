@@ -137,7 +137,6 @@ void UserDataView::ajouterClic() {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Ouvrir une base de données"), "", tr("Base de données SQLite (*.sqlite *.db)"));
     if (!fileName.isEmpty()) {
         databaseManager->addDatabase(fileName);
-        qDebug() << "ajout de la db";
 
         refreshDatabasesList();
     }
@@ -145,7 +144,6 @@ void UserDataView::ajouterClic() {
 
 void UserDataView::supprimerClic() {
     auto user = loginManager->getCurrentUser();
-    // Vérifie si l'utilisateur a le droit de modifier (inclut la suppression)
     if (!user || !user->getRights().canEdit()) {
         QMessageBox::warning(this, tr("Accès refusé"), tr("Vous n'avez pas les droits nécessaires pour supprimer une base de données."));
         return;
@@ -161,14 +159,16 @@ void UserDataView::supprimerClic() {
     }
 
     // Tentative de suppression de la base de données
-    if (databaseManager->removeDatabase(currentDbName)) {
-        qDebug() << "La base de données " << currentDbName << " a été supprimée avec succès.";
+    bool success = databaseManager->removeDatabase(currentDbName);
+    if (success) {
+        QMessageBox::information(this, tr("Suppression réussie"), tr("La base de données \"%1\" a été supprimée avec succès.").arg(currentDbName));
     } else {
-        qDebug() << "Échec de la suppression de la base de données " << currentDbName << ".";
+        QMessageBox::critical(this, tr("Échec de la suppression"), tr("Impossible de supprimer la base de données \"%1\".").arg(currentDbName));
     }
 
     refreshDatabasesList();
 }
+
 
 
 void UserDataView::executerClic() {

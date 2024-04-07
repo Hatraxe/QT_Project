@@ -24,7 +24,6 @@ LoginForm::LoginForm(QWidget *parent, std::shared_ptr<LoginManager> loginManager
 
     // Connecte le bouton de connexion à son slot
     connect(ui->pushButton_Login, &QPushButton::clicked, this, &LoginForm::login);
-    qDebug() << "Connection du signal clicked au slot on push button clicked";
 
     // Connecte le bouton "Mot de passe oublié" à son slot
     connect(ui->pushButton_MdpOublie, &QPushButton::clicked, this, &LoginForm::mdpOublie);
@@ -47,7 +46,6 @@ LoginForm::~LoginForm() {
 void LoginForm::login() {
     QString login = ui->lineEdit_Login_Email->text();
     QString motDePasse = ui->lineEdit_Mdp->text();
-    qDebug() << "on push button login clicked";
 
 
     // Tente de se connecter avec le LoginManager
