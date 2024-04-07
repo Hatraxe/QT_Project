@@ -12,18 +12,15 @@ DatabaseManager::~DatabaseManager() {
 bool DatabaseManager::addDatabase(const QString &filePath) {
     QString connectionName = QFileInfo(filePath).fileName();
     if (QSqlDatabase::contains(connectionName)) {
-        qDebug() << "La base de données est déjà ouverte.";
         return true; // Retourne vrai si la base de données existe déjà pour éviter les doublons
     }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", connectionName);
     db.setDatabaseName(filePath);
     if (!db.open()) {
-        qDebug() << "Erreur lors de l'ouverture de la base de données : " << db.lastError().text();
         return false;
     }
     databases.append(db);
-    //emit databaseAdded(connectionName); // Signale l'ajout d'une nouvelle base de données
     return true;
 }
 
@@ -54,15 +51,22 @@ QStringList DatabaseManager::listTables(const QString &connectionName) {
 
 QSqlQueryModel* DatabaseManager::executeQuery(const QString &connectionName, const QString &query) {
     QSqlDatabase db = QSqlDatabase::database(connectionName);
-    QPointer<QSqlQueryModel> model = new QSqlQueryModel;
-    if (db.isOpen()) {
-        model->setQuery(query, db);
-        if (model->lastError().isValid()) {
-            qDebug() << "Erreur lors de l'exécution de la requête : " << model->lastError().text();
-        }
+    if (!db.isOpen()) {
+        // Retourne nullptr si la base de données n'est pas ouverte
+        return nullptr;
     }
+
+    QPointer<QSqlQueryModel> model = new QSqlQueryModel;
+    model->setQuery(query, db);
+    if (model->lastError().isValid()) {
+        // En cas d'erreur, nettoye et retourne nullptr
+        delete model;
+        return nullptr;
+    }
+
     return model;
 }
+
 
 void DatabaseManager::closeAllDatabases() {
     foreach (QSqlDatabase db, databases) {

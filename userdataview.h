@@ -59,6 +59,9 @@ public:
 
     void setDatabaseManager(std::shared_ptr<DatabaseManager> dbManager);
 
+    bool isValidQuery(const QString& query, const UserRights& rights);
+
+
 
 
 signals:

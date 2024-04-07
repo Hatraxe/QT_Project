@@ -30,12 +30,9 @@ bool LoginManager::login(const QString &username, const QString &password) {
 
         if (user.getUsername() == username && user.checkPassword(password)) {
             currentUser = std::make_shared<User>(user);
-            // qDebug() << "Connexion réussie pour l'utilisateur:" << username;
             return true;
         }
-        else{
-            // qDebug() << "Échec de la connexion pour l'utilisateur:" << username;
-        }
+
     }
     return false;
 }
