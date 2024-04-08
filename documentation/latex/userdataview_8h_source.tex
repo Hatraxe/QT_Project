@@ -1,0 +1,67 @@
+\doxysection{userdataview.\+h}
+\hypertarget{userdataview_8h_source}{}\label{userdataview_8h_source}\mbox{\hyperlink{userdataview_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ USERDATAVIEW\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ USERDATAVIEW\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QMessageBox>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{loginmanager_8h}{LoginManager.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{databasemanager_8h}{DatabaseManager.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_user_data_view}{UserDataView}};}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_user_data_view}{UserDataView}}\ :\ \textcolor{keyword}{public}\ QWidget\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_user_data_view_a7ed29f7964086fc713d227c59218c3d3}{UserDataView}}(QWidget\ *parent,\ std::shared\_ptr<LoginManager>\ loginManager);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_user_data_view_a12a0f52760fee32529dbd37d644aaa32}{\string~UserDataView}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_data_view_a87f47f47466048fe6cce8f4ff484d8bd}{refreshUserInfos}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ setDatabaseManager(std::shared\_ptr<DatabaseManager>\ dbManager);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidQuery(\textcolor{keyword}{const}\ QString\&\ query,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_user_rights}{UserRights}}\&\ rights);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ signals:}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_data_view_af4bbd0c0f3dbfc6cf18c31890ee2d2bf}{logoutRequested}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ changeProfilClic();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ deconnexionClic();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ changePasswordClic();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ okClic();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ ajouterClic();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ supprimerClic();}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ executerClic();}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ indexComboBoxBddChanged(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ displayTableContent(\textcolor{keyword}{const}\ QString\ \&tableName);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00104\ \ \ \ \ Ui::UserDataView\ *ui;\ }
+\DoxyCodeLine{00105\ \ \ \ \ std::shared\_ptr<LoginManager>\ loginManager;\ }
+\DoxyCodeLine{00106\ \ \ \ \ std::shared\_ptr<DatabaseManager>\ databaseManager;\ \textcolor{comment}{//\ Gère\ les\ interactions\ avec\ les\ bases\ de\ données}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ refreshDatabasesList();\ \textcolor{comment}{//\ Met\ à\ jour\ la\ liste\ des\ bases\ de\ données\ disponibles}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ refreshTablesList();\ \textcolor{comment}{//\ Met\ à\ jour\ la\ liste\ des\ tables\ pour\ la\ base\ de\ données\ sélectionnée}}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ USERDATAVIEW\_H}}
+
+\end{DoxyCode}

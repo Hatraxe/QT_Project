@@ -1,0 +1,196 @@
+\doxysection{Référence de la classe User\+Storage}
+\hypertarget{class_user_storage}{}\label{class_user_storage}\index{UserStorage@{UserStorage}}
+
+
+Classe pour la gestion du stockage des données utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$userstorage.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_storage_a42b5ac81e7a6498538367d5f0ec323aa}{User\+Storage}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de \doxylink{class_user_storage}{User\+Storage}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_storage_ab0f56c77c0ec107c1bee0c65b0d0bfbe}{save\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Enregistre un nouvel utilisateur dans le stockage persistant. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_storage_a809c8f205dcce9ddfd3679479a354c9e}{validate\+User}} (const QString \&username, const QString \&password)
+\begin{DoxyCompactList}\small\item\em Valide les informations de connexion d\textquotesingle{}un utilisateur. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_user_storage_affb3d5055872f9856e9bed724ec80cc3}{get\+Filename}} () const
+\begin{DoxyCompactList}\small\item\em Obtient le nom du fichier de stockage des utilisateurs. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_user_storage_a13783e6655b1b8768628f110456b0e98}{get\+User\+File\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Obtient le chemin complet du fichier de stockage des utilisateurs. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_user_storage_a3f82a7e2b3ec491ad9f97450e7d995a0}{get\+Users}} () const
+\begin{DoxyCompactList}\small\item\em Obtient la liste des utilisateurs chargés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_storage_a888266a76aae7e791014d32307c066ae}{set\+Filename}} (const QString \&filename)
+\begin{DoxyCompactList}\small\item\em Définit le nom du fichier de stockage des utilisateurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_storage_abebb1a6a9beb6c470922d36c922e0e39}{set\+User\+File\+Path}} (const QString \&user\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Définit le chemin complet vers le fichier de stockage des utilisateurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_storage_a682c5204d7f309f1e30739571edcb81b}{set\+Users}} (const QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&users)
+\begin{DoxyCompactList}\small\item\em Définit la liste des utilisateurs chargés. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe pour la gestion du stockage des données utilisateur. 
+
+Permet de sauvegarder de nouveaux utilisateurs, de valider les informations de connexion, et de récupérer la liste des utilisateurs existants. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_user_storage_a42b5ac81e7a6498538367d5f0ec323aa}\label{class_user_storage_a42b5ac81e7a6498538367d5f0ec323aa} 
+\index{UserStorage@{UserStorage}!UserStorage@{UserStorage}}
+\index{UserStorage@{UserStorage}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{UserStorage()}{UserStorage()}}
+{\footnotesize\ttfamily User\+Storage\+::\+User\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut de \doxylink{class_user_storage}{User\+Storage}. 
+
+Constructeur de \doxylink{class_user_storage}{User\+Storage} qui initialise le stockage des utilisateurs.
+
+Initialise un nouvel objet \doxylink{class_user_storage}{User\+Storage} avec des valeurs par défaut.
+
+Charge les utilisateurs existants à partir d\textquotesingle{}un fichier JSON spécifié ou crée un fichier s\textquotesingle{}il n\textquotesingle{}existe pas. Prépare le système de stockage pour gérer les utilisateurs. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_storage_affb3d5055872f9856e9bed724ec80cc3}\label{class_user_storage_affb3d5055872f9856e9bed724ec80cc3} 
+\index{UserStorage@{UserStorage}!getFilename@{getFilename}}
+\index{getFilename@{getFilename}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{getFilename()}{getFilename()}}
+{\footnotesize\ttfamily QString User\+Storage\+::get\+Filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient le nom du fichier de stockage des utilisateurs. 
+
+\begin{DoxyReturn}{Renvoie}
+Le nom du fichier. 
+\end{DoxyReturn}
+\Hypertarget{class_user_storage_a13783e6655b1b8768628f110456b0e98}\label{class_user_storage_a13783e6655b1b8768628f110456b0e98} 
+\index{UserStorage@{UserStorage}!getUserFilePath@{getUserFilePath}}
+\index{getUserFilePath@{getUserFilePath}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{getUserFilePath()}{getUserFilePath()}}
+{\footnotesize\ttfamily QString User\+Storage\+::get\+User\+File\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient le chemin complet du fichier de stockage des utilisateurs. 
+
+\begin{DoxyReturn}{Renvoie}
+Le chemin complet du fichier. 
+\end{DoxyReturn}
+\Hypertarget{class_user_storage_a3f82a7e2b3ec491ad9f97450e7d995a0}\label{class_user_storage_a3f82a7e2b3ec491ad9f97450e7d995a0} 
+\index{UserStorage@{UserStorage}!getUsers@{getUsers}}
+\index{getUsers@{getUsers}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{getUsers()}{getUsers()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ User\+Storage\+::get\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient la liste des utilisateurs chargés. 
+
+\begin{DoxyReturn}{Renvoie}
+La liste des utilisateurs. 
+\end{DoxyReturn}
+\Hypertarget{class_user_storage_ab0f56c77c0ec107c1bee0c65b0d0bfbe}\label{class_user_storage_ab0f56c77c0ec107c1bee0c65b0d0bfbe} 
+\index{UserStorage@{UserStorage}!saveUser@{saveUser}}
+\index{saveUser@{saveUser}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{saveUser()}{saveUser()}}
+{\footnotesize\ttfamily void User\+Storage\+::save\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user }\end{DoxyParamCaption})}
+
+
+
+Enregistre un nouvel utilisateur dans le stockage persistant. 
+
+Enregistre un nouvel utilisateur dans le système de stockage.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em user} & L\textquotesingle{}utilisateur à sauvegarder.\\
+\hline
+{\em user} & L\textquotesingle{}utilisateur à enregistrer.\\
+\hline
+\end{DoxyParams}
+Ajoute l\textquotesingle{}utilisateur à la liste si celui-\/ci n\textquotesingle{}existe pas déjà. Sérialise ensuite la liste mise à jour des utilisateurs dans le fichier JSON. \Hypertarget{class_user_storage_a888266a76aae7e791014d32307c066ae}\label{class_user_storage_a888266a76aae7e791014d32307c066ae} 
+\index{UserStorage@{UserStorage}!setFilename@{setFilename}}
+\index{setFilename@{setFilename}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{setFilename()}{setFilename()}}
+{\footnotesize\ttfamily void User\+Storage\+::set\+Filename (\begin{DoxyParamCaption}\item[{const QString \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Définit le nom du fichier de stockage des utilisateurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & Le nouveau nom du fichier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_storage_abebb1a6a9beb6c470922d36c922e0e39}\label{class_user_storage_abebb1a6a9beb6c470922d36c922e0e39} 
+\index{UserStorage@{UserStorage}!setUserFilePath@{setUserFilePath}}
+\index{setUserFilePath@{setUserFilePath}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{setUserFilePath()}{setUserFilePath()}}
+{\footnotesize\ttfamily void User\+Storage\+::set\+User\+File\+Path (\begin{DoxyParamCaption}\item[{const QString \&}]{user\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Définit le chemin complet vers le fichier de stockage des utilisateurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em user\+File\+Path} & Le nouveau chemin du fichier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_storage_a682c5204d7f309f1e30739571edcb81b}\label{class_user_storage_a682c5204d7f309f1e30739571edcb81b} 
+\index{UserStorage@{UserStorage}!setUsers@{setUsers}}
+\index{setUsers@{setUsers}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{setUsers()}{setUsers()}}
+{\footnotesize\ttfamily void User\+Storage\+::set\+Users (\begin{DoxyParamCaption}\item[{const QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&}]{users }\end{DoxyParamCaption})}
+
+
+
+Définit la liste des utilisateurs chargés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em users} & La nouvelle liste des utilisateurs. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_storage_a809c8f205dcce9ddfd3679479a354c9e}\label{class_user_storage_a809c8f205dcce9ddfd3679479a354c9e} 
+\index{UserStorage@{UserStorage}!validateUser@{validateUser}}
+\index{validateUser@{validateUser}!UserStorage@{UserStorage}}
+\doxysubsubsection{\texorpdfstring{validateUser()}{validateUser()}}
+{\footnotesize\ttfamily bool User\+Storage\+::validate\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{username,  }\item[{const QString \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Valide les informations de connexion d\textquotesingle{}un utilisateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em username} & Le nom d\textquotesingle{}utilisateur. \\
+\hline
+{\em password} & Le mot de passe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si les informations sont valides, False sinon.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em username} & Le nom d\textquotesingle{}utilisateur. \\
+\hline
+{\em password} & Le mot de passe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si les informations de connexion sont valides, sinon False.
+\end{DoxyReturn}
+Compare le nom d\textquotesingle{}utilisateur et le mot de passe (après hashage) avec les données des utilisateurs chargés pour valider les informations de connexion. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{userstorage_8h}{userstorage.\+h}}\item 
+\mbox{\hyperlink{_user_storage_8cpp}{User\+Storage.\+cpp}}\end{DoxyCompactItemize}

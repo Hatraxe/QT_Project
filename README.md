@@ -1,6 +1,3 @@
-
-
-
 # SQLite Database Viewer
 
 SQLite Database Viewer est une application développée en C++ avec le framework Qt. Elle permet de visualiser et d'interagir avec des bases de données SQLite. L'application offre une interface pour se connecter avec des profils d'utilisateurs différents, afficher et modifier les données des bases de données SQLite existantes.

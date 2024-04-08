@@ -1,0 +1,146 @@
+\doxysection{Référence de la classe Database\+Manager}
+\hypertarget{class_database_manager}{}\label{class_database_manager}\index{DatabaseManager@{DatabaseManager}}
+
+
+Gestionnaire de bases de données pour l\textquotesingle{}application.  
+
+
+
+
+{\ttfamily \#include $<$databasemanager.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_database_manager_aa162d97472e6c31a4e873adda435dbb6}\label{class_database_manager_aa162d97472e6c31a4e873adda435dbb6} 
+{\bfseries Database\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut de \doxylink{class_database_manager}{Database\+Manager}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_database_manager_ae9b3a5da1e04fbb00faf8a034da1d063}{\texorpdfstring{$\sim$}{\string~}\+Database\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \doxylink{class_database_manager}{Database\+Manager}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_manager_ad8b1571a425b00f4760a3b6d3ee83d52}{add\+Database}} (const QString \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Ajoute une base de données SQLite à l\textquotesingle{}application. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_database_manager_a1aa39c9ea148173821e50f2ef44c1620}{remove\+Database}} (const QString \&connection\+Name)
+\begin{DoxyCompactList}\small\item\em Supprime une base de données de l\textquotesingle{}application. \end{DoxyCompactList}\item 
+QString\+List \mbox{\hyperlink{class_database_manager_ac963aed2b2e09e4df26e9a1d94ca1cba}{list\+Tables}} (const QString \&connection\+Name)
+\begin{DoxyCompactList}\small\item\em Liste les tables d\textquotesingle{}une base de données spécifiée. \end{DoxyCompactList}\item 
+QSql\+Query\+Model \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_database_manager_a3cb86859247a5b33f9bbfeb455315055}{execute\+Query}} (const QString \&connection\+Name, const QString \&query)
+\begin{DoxyCompactList}\small\item\em Exécute une requête SQL sur une base de données spécifiée. \end{DoxyCompactList}\item 
+\Hypertarget{class_database_manager_ad51a3ec4da87305674e3ae969a80299c}\label{class_database_manager_ad51a3ec4da87305674e3ae969a80299c} 
+void {\bfseries close\+All\+Databases} ()
+\begin{DoxyCompactList}\small\item\em Ferme toutes les bases de données ouvertes. \end{DoxyCompactList}\item 
+QString\+List \mbox{\hyperlink{class_database_manager_a6af9449df66c51461f69c171f11911c8}{get\+Database\+Names}} () const
+\begin{DoxyCompactList}\small\item\em Obtient les noms de toutes les bases de données gérées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestionnaire de bases de données pour l\textquotesingle{}application. 
+
+Permet d\textquotesingle{}ajouter, supprimer, et lister les bases de données SQLite, ainsi que d\textquotesingle{}exécuter des requêtes SQL spécifiques. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_database_manager_ae9b3a5da1e04fbb00faf8a034da1d063}\label{class_database_manager_ae9b3a5da1e04fbb00faf8a034da1d063} 
+\index{DatabaseManager@{DatabaseManager}!````~DatabaseManager@{\texorpdfstring{$\sim$}{\string~}DatabaseManager}}
+\index{````~DatabaseManager@{\texorpdfstring{$\sim$}{\string~}DatabaseManager}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DatabaseManager()}{\string~DatabaseManager()}}
+{\footnotesize\ttfamily Database\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Database\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de \doxylink{class_database_manager}{Database\+Manager}. 
+
+Ferme toutes les bases de données ouvertes avant la destruction de l\textquotesingle{}objet. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_database_manager_ad8b1571a425b00f4760a3b6d3ee83d52}\label{class_database_manager_ad8b1571a425b00f4760a3b6d3ee83d52} 
+\index{DatabaseManager@{DatabaseManager}!addDatabase@{addDatabase}}
+\index{addDatabase@{addDatabase}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{addDatabase()}{addDatabase()}}
+{\footnotesize\ttfamily bool Database\+Manager\+::add\+Database (\begin{DoxyParamCaption}\item[{const QString \&}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Ajoute une base de données SQLite à l\textquotesingle{}application. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file\+Path} & Le chemin du fichier de la base de données à ajouter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne true si la base de données a été ajoutée avec succès, false sinon. 
+\end{DoxyReturn}
+\Hypertarget{class_database_manager_a3cb86859247a5b33f9bbfeb455315055}\label{class_database_manager_a3cb86859247a5b33f9bbfeb455315055} 
+\index{DatabaseManager@{DatabaseManager}!executeQuery@{executeQuery}}
+\index{executeQuery@{executeQuery}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{executeQuery()}{executeQuery()}}
+{\footnotesize\ttfamily QSql\+Query\+Model \texorpdfstring{$\ast$}{*} Database\+Manager\+::execute\+Query (\begin{DoxyParamCaption}\item[{const QString \&}]{connection\+Name,  }\item[{const QString \&}]{query }\end{DoxyParamCaption})}
+
+
+
+Exécute une requête SQL sur une base de données spécifiée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em connection\+Name} & Le nom de la connexion à la base de données sur laquelle exécuter la requête. \\
+\hline
+{\em query} & La requête SQL à exécuter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+QSql\+Query\+Model\texorpdfstring{$\ast$}{*} Un modèle contenant le résultat de la requête. Retourne nullptr en cas d\textquotesingle{}échec. 
+\end{DoxyReturn}
+\Hypertarget{class_database_manager_a6af9449df66c51461f69c171f11911c8}\label{class_database_manager_a6af9449df66c51461f69c171f11911c8} 
+\index{DatabaseManager@{DatabaseManager}!getDatabaseNames@{getDatabaseNames}}
+\index{getDatabaseNames@{getDatabaseNames}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{getDatabaseNames()}{getDatabaseNames()}}
+{\footnotesize\ttfamily QString\+List Database\+Manager\+::get\+Database\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient les noms de toutes les bases de données gérées. 
+
+\begin{DoxyReturn}{Renvoie}
+QString\+List Liste des noms de connexion des bases de données. 
+\end{DoxyReturn}
+\Hypertarget{class_database_manager_ac963aed2b2e09e4df26e9a1d94ca1cba}\label{class_database_manager_ac963aed2b2e09e4df26e9a1d94ca1cba} 
+\index{DatabaseManager@{DatabaseManager}!listTables@{listTables}}
+\index{listTables@{listTables}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{listTables()}{listTables()}}
+{\footnotesize\ttfamily QString\+List Database\+Manager\+::list\+Tables (\begin{DoxyParamCaption}\item[{const QString \&}]{connection\+Name }\end{DoxyParamCaption})}
+
+
+
+Liste les tables d\textquotesingle{}une base de données spécifiée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em connection\+Name} & Le nom de la connexion à la base de données. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+QString\+List Liste des noms de tables dans la base de données. 
+\end{DoxyReturn}
+\Hypertarget{class_database_manager_a1aa39c9ea148173821e50f2ef44c1620}\label{class_database_manager_a1aa39c9ea148173821e50f2ef44c1620} 
+\index{DatabaseManager@{DatabaseManager}!removeDatabase@{removeDatabase}}
+\index{removeDatabase@{removeDatabase}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{removeDatabase()}{removeDatabase()}}
+{\footnotesize\ttfamily bool Database\+Manager\+::remove\+Database (\begin{DoxyParamCaption}\item[{const QString \&}]{connection\+Name }\end{DoxyParamCaption})}
+
+
+
+Supprime une base de données de l\textquotesingle{}application. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em connection\+Name} & Le nom de la connexion associée à la base de données à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne true si la base de données a été supprimée avec succès, false sinon. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{databasemanager_8h}{databasemanager.\+h}}\item 
+databasemanager.\+cpp\end{DoxyCompactItemize}

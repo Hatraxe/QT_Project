@@ -55,6 +55,8 @@ void Application::initializeApplication() {
     connect(userDataView, &UserDataView::logoutRequested, this, &Application::handleLogout);
     connect(loginForm, &LoginForm::signUpRequested, this, &Application::showUserCreationForm);
 
+
+    // Si premier lancement, on initialise le fichier Json et on affiche le formulaire d'inscription
     if (isFirstLaunch()) {
         showUserCreationForm();
     } else {

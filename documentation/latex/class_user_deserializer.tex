@@ -1,0 +1,58 @@
+\doxysection{Référence de la classe User\+Deserializer}
+\hypertarget{class_user_deserializer}{}\label{class_user_deserializer}\index{UserDeserializer@{UserDeserializer}}
+
+
+Classe utilitaire pour désérialiser des objets \doxylink{class_user}{User} à partir d\textquotesingle{}un fichier JSON.  
+
+
+
+
+{\ttfamily \#include $<$userdeserializer.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_user_deserializer_a6887a11c33ee9255960beed8a4c0ccd3}{deserialize\+From\+File}} (const QString \&filename)
+\begin{DoxyCompactList}\small\item\em Désérialise les utilisateurs à partir d\textquotesingle{}un fichier JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe utilitaire pour désérialiser des objets \doxylink{class_user}{User} à partir d\textquotesingle{}un fichier JSON. 
+
+\doxylink{class_user_deserializer}{User\+Deserializer} contient des méthodes statiques pour charger et transformer les données JSON en instances de la classe \doxylink{class_user}{User}, facilitant ainsi leur utilisation dans l\textquotesingle{}application. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_deserializer_a6887a11c33ee9255960beed8a4c0ccd3}\label{class_user_deserializer_a6887a11c33ee9255960beed8a4c0ccd3} 
+\index{UserDeserializer@{UserDeserializer}!deserializeFromFile@{deserializeFromFile}}
+\index{deserializeFromFile@{deserializeFromFile}!UserDeserializer@{UserDeserializer}}
+\doxysubsubsection{\texorpdfstring{deserializeFromFile()}{deserializeFromFile()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ User\+Deserializer\+::deserialize\+From\+File (\begin{DoxyParamCaption}\item[{const QString \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Désérialise les utilisateurs à partir d\textquotesingle{}un fichier JSON. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & Le chemin d\textquotesingle{}accès au fichier JSON contenant les données des utilisateurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une liste d\textquotesingle{}objets \doxylink{class_user}{User} chargés à partir du fichier JSON.
+\end{DoxyReturn}
+Lit le fichier JSON spécifié, extrait les données des utilisateurs et les convertit en une liste d\textquotesingle{}objets \doxylink{class_user}{User}. Chaque objet \doxylink{class_user}{User} est créé en utilisant les données extraites du fichier.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & Le chemin d\textquotesingle{}accès au fichier JSON contenant les données des utilisateurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une liste d\textquotesingle{}objets \doxylink{class_user}{User} chargés à partir du fichier JSON.
+\end{DoxyReturn}
+Ouvre et lit le fichier JSON spécifié, extrait les données des utilisateurs et les convertit en une liste d\textquotesingle{}objets \doxylink{class_user}{User}. Si le fichier ne peut pas être ouvert, une liste vide est retournée. Chaque utilisateur est créé avec ses droits et profils correspondants. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{userdeserializer_8h}{userdeserializer.\+h}}\item 
+\mbox{\hyperlink{userdeserializer_8cpp}{userdeserializer.\+cpp}}\end{DoxyCompactItemize}

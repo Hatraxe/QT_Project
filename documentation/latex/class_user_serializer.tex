@@ -1,0 +1,64 @@
+\doxysection{Référence de la classe User\+Serializer}
+\hypertarget{class_user_serializer}{}\label{class_user_serializer}\index{UserSerializer@{UserSerializer}}
+
+
+Classe utilitaire pour sérialiser des objets \doxylink{class_user}{User} dans un fichier JSON.  
+
+
+
+
+{\ttfamily \#include $<$userserializer.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_user_serializer_a2c7c0f84482e9ecbf3bc56c4f562fb3c}{serialize\+To\+File}} (const QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&users, const QString \&filename)
+\begin{DoxyCompactList}\small\item\em Sérialise les utilisateurs dans un fichier JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe utilitaire pour sérialiser des objets \doxylink{class_user}{User} dans un fichier JSON. 
+
+\doxylink{class_user_serializer}{User\+Serializer} contient des méthodes statiques pour enregistrer des instances de la classe \doxylink{class_user}{User} dans un fichier JSON, facilitant ainsi leur persistance. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_serializer_a2c7c0f84482e9ecbf3bc56c4f562fb3c}\label{class_user_serializer_a2c7c0f84482e9ecbf3bc56c4f562fb3c} 
+\index{UserSerializer@{UserSerializer}!serializeToFile@{serializeToFile}}
+\index{serializeToFile@{serializeToFile}!UserSerializer@{UserSerializer}}
+\doxysubsubsection{\texorpdfstring{serializeToFile()}{serializeToFile()}}
+{\footnotesize\ttfamily bool User\+Serializer\+::serialize\+To\+File (\begin{DoxyParamCaption}\item[{const QList$<$ \mbox{\hyperlink{class_user}{User}} $>$ \&}]{users,  }\item[{const QString \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sérialise les utilisateurs dans un fichier JSON. 
+
+Sérialise une liste d\textquotesingle{}objets \doxylink{class_user}{User} en JSON et sauvegarde dans un fichier.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em users} & La liste des objets \doxylink{class_user}{User} à sérialiser. \\
+\hline
+{\em filename} & Le chemin d\textquotesingle{}accès au fichier JSON où enregistrer les données des utilisateurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne vrai si la sérialisation et l\textquotesingle{}enregistrement dans le fichier ont réussi, faux sinon.
+\end{DoxyReturn}
+Prend une liste d\textquotesingle{}objets \doxylink{class_user}{User}, les convertit en format JSON et les sauvegarde dans le fichier spécifié par filename. Si le fichier ne peut pas être ouvert ou si une erreur survient lors de l\textquotesingle{}écriture, la fonction retourne faux.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em users} & La liste des utilisateurs à sérialiser. \\
+\hline
+{\em filename} & Le nom du fichier où sauvegarder le JSON. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+True si la sérialisation et la sauvegarde réussissent, False sinon.
+\end{DoxyReturn}
+Parcourt chaque utilisateur dans la liste fournie, extrait leurs informations et les convertit en format JSON. Ensuite, sauvegarde ce JSON dans le fichier spécifié par filename. Si le fichier ne peut être ouvert en écriture, retourne false. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{userserializer_8h}{userserializer.\+h}}\item 
+\mbox{\hyperlink{userserializer_8cpp}{userserializer.\+cpp}}\end{DoxyCompactItemize}

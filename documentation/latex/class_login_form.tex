@@ -1,0 +1,80 @@
+\doxysection{Référence de la classe Login\+Form}
+\hypertarget{class_login_form}{}\label{class_login_form}\index{LoginForm@{LoginForm}}
+
+
+La classe \doxylink{class_login_form}{Login\+Form} crée une interface utilisateur pour que les utilisateurs puissent se connecter.  
+
+
+
+
+{\ttfamily \#include $<$Login\+Form.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Login\+Form\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_login_form}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_login_form_a62a5fe6bc43e86ab35a4dbd4dca8cd06}\label{class_login_form_a62a5fe6bc43e86ab35a4dbd4dca8cd06} 
+void {\bfseries user\+Connected} ()
+\begin{DoxyCompactList}\small\item\em Signal émis lorsque l\textquotesingle{}utilisateur est connecté avec succès. \end{DoxyCompactList}\item 
+\Hypertarget{class_login_form_ae1ae4dda63eb118f5a876b37b72b3e55}\label{class_login_form_ae1ae4dda63eb118f5a876b37b72b3e55} 
+void {\bfseries sign\+Up\+Requested} ()
+\begin{DoxyCompactList}\small\item\em Signal émis pour demander l\textquotesingle{}affichage du formulaire d\textquotesingle{}inscription. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_login_form_af93e67be15d544f7e2b9cd5f1e0a920a}{Login\+Form}} (QWidget \texorpdfstring{$\ast$}{*}parent, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_login_manager}{Login\+Manager}} $>$ login\+Manager)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{class_login_form}{Login\+Form}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_login_form_a3afb9c764d7d7c72f107f0ec1f08769c}{\texorpdfstring{$\sim$}{\string~}\+Login\+Form}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \doxylink{class_login_form}{Login\+Form}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+La classe \doxylink{class_login_form}{Login\+Form} crée une interface utilisateur pour que les utilisateurs puissent se connecter. 
+
+Elle interagit avec \doxylink{class_login_manager}{Login\+Manager} pour vérifier les informations de connexion. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_login_form_af93e67be15d544f7e2b9cd5f1e0a920a}\label{class_login_form_af93e67be15d544f7e2b9cd5f1e0a920a} 
+\index{LoginForm@{LoginForm}!LoginForm@{LoginForm}}
+\index{LoginForm@{LoginForm}!LoginForm@{LoginForm}}
+\doxysubsubsection{\texorpdfstring{LoginForm()}{LoginForm()}}
+{\footnotesize\ttfamily Login\+Form\+::\+Login\+Form (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_login_manager}{Login\+Manager}} $>$}]{login\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de \doxylink{class_login_form}{Login\+Form}. 
+
+Constructeur de \doxylink{class_login_form}{Login\+Form} qui initialise les composants UI et les connexions de signaux.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & Le widget parent de ce formulaire. \\
+\hline
+{\em login\+Manager} & Le gestionnaire de connexion partagé à utiliser pour la vérification des identifiants.\\
+\hline
+{\em parent} & Le widget parent de \doxylink{class_login_form}{Login\+Form}. \\
+\hline
+{\em login\+Manager} & Le gestionnaire de connexion utilisé pour authentifier les utilisateurs.\\
+\hline
+\end{DoxyParams}
+Connecte le bouton d\textquotesingle{}inscription à son slot correspondant. \Hypertarget{class_login_form_a3afb9c764d7d7c72f107f0ec1f08769c}\label{class_login_form_a3afb9c764d7d7c72f107f0ec1f08769c} 
+\index{LoginForm@{LoginForm}!````~LoginForm@{\texorpdfstring{$\sim$}{\string~}LoginForm}}
+\index{````~LoginForm@{\texorpdfstring{$\sim$}{\string~}LoginForm}!LoginForm@{LoginForm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LoginForm()}{\string~LoginForm()}}
+{\footnotesize\ttfamily Login\+Form\+::\texorpdfstring{$\sim$}{\string~}\+Login\+Form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de \doxylink{class_login_form}{Login\+Form}. 
+
+Destructeur de \doxylink{class_login_form}{Login\+Form} qui nettoie l\textquotesingle{}interface utilisateur. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_login_form_8h}{Login\+Form.\+h}}\item 
+\mbox{\hyperlink{loginform_8cpp}{loginform.\+cpp}}\end{DoxyCompactItemize}
