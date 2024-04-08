@@ -1,0 +1,29 @@
+\doxysection{loginmanager.\+h}
+\hypertarget{loginmanager_8h_source}{}\label{loginmanager_8h_source}\mbox{\hyperlink{loginmanager_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ LOGINMANAGER\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ LOGINMANAGER\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{userstorage_8h}{UserStorage.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_user_8h}{User.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_login_manager}{LoginManager}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_login_manager_ae7c3f448220f618ef08525980d9081d2}{LoginManager}}(std::shared\_ptr<UserStorage>\ storage);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_login_manager_a5e9fb19e828d4ef64ae575da3882f5da}{login}}(\textcolor{keyword}{const}\ QString\ \&username,\ \textcolor{keyword}{const}\ QString\ \&password);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_login_manager_a5882566fb5c1f00b58fa587d739545d4}{logout}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::shared\_ptr<User>\ \mbox{\hyperlink{class_login_manager_a989d04108f8f3003642795ed6234b61a}{getCurrentUser}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ std::shared\_ptr<UserStorage>\ storage;\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::shared\_ptr<User>\ currentUser;\ }
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOGINMANAGER\_H}}
+
+\end{DoxyCode}

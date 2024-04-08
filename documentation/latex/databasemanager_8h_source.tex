@@ -1,0 +1,40 @@
+\doxysection{databasemanager.\+h}
+\hypertarget{databasemanager_8h_source}{}\label{databasemanager_8h_source}\mbox{\hyperlink{databasemanager_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ DATABASEMANAGER\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ DATABASEMANAGER\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QSqlDatabase>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QSqlQuery>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QSqlError>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QSqlQueryModel>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_database_manager}{DatabaseManager}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_database_manager_aa162d97472e6c31a4e873adda435dbb6}{DatabaseManager}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_database_manager_ae9b3a5da1e04fbb00faf8a034da1d063}{\string~DatabaseManager}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_database_manager_ad8b1571a425b00f4760a3b6d3ee83d52}{addDatabase}}(\textcolor{keyword}{const}\ QString\ \&filePath);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_database_manager_a1aa39c9ea148173821e50f2ef44c1620}{removeDatabase}}(\textcolor{keyword}{const}\ QString\ \&connectionName);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ QStringList\ \mbox{\hyperlink{class_database_manager_ac963aed2b2e09e4df26e9a1d94ca1cba}{listTables}}(\textcolor{keyword}{const}\ QString\ \&connectionName);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \ \ QSqlQueryModel*\ \mbox{\hyperlink{class_database_manager_a3cb86859247a5b33f9bbfeb455315055}{executeQuery}}(\textcolor{keyword}{const}\ QString\ \&connectionName,\ \textcolor{keyword}{const}\ QString\ \&query);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_database_manager_ad51a3ec4da87305674e3ae969a80299c}{closeAllDatabases}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ QStringList\ \mbox{\hyperlink{class_database_manager_a6af9449df66c51461f69c171f11911c8}{getDatabaseNames}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ QList<QSqlDatabase>\ databases;\ }
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATABASEMANAGER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\doxysection{Référence de la classe Sign\+In\+Form}
+\hypertarget{class_sign_in_form}{}\label{class_sign_in_form}\index{SignInForm@{SignInForm}}
+
+
+Classe représentant le formulaire d\textquotesingle{}inscription dans l\textquotesingle{}application.  
+
+
+
+
+{\ttfamily \#include $<$signinform.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Sign\+In\+Form\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sign_in_form}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_sign_in_form_ac05a8332ff214db59bddbc96668945c2}{user\+Created}} ()
+\begin{DoxyCompactList}\small\item\em Signal émis après la création réussie d\textquotesingle{}un utilisateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sign_in_form_a55c028790b5bb79688e17141efa7bc47}{Sign\+In\+Form}} (QWidget \texorpdfstring{$\ast$}{*}parent, shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_storage}{User\+Storage}} $>$ storage)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{class_sign_in_form}{Sign\+In\+Form}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sign_in_form_ac1fa7817cef5ff61b14a85b5cf693921}{\texorpdfstring{$\sim$}{\string~}\+Sign\+In\+Form}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \doxylink{class_sign_in_form}{Sign\+In\+Form}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe représentant le formulaire d\textquotesingle{}inscription dans l\textquotesingle{}application. 
+
+\doxylink{class_sign_in_form}{Sign\+In\+Form} fournit une interface permettant à l\textquotesingle{}utilisateur de s\textquotesingle{}inscrire en entrant ses informations personnelles. L\textquotesingle{}inscription est traitée par \doxylink{class_user_storage}{User\+Storage}. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_sign_in_form_a55c028790b5bb79688e17141efa7bc47}\label{class_sign_in_form_a55c028790b5bb79688e17141efa7bc47} 
+\index{SignInForm@{SignInForm}!SignInForm@{SignInForm}}
+\index{SignInForm@{SignInForm}!SignInForm@{SignInForm}}
+\doxysubsubsection{\texorpdfstring{SignInForm()}{SignInForm()}}
+{\footnotesize\ttfamily Sign\+In\+Form\+::\+Sign\+In\+Form (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent,  }\item[{shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_storage}{User\+Storage}} $>$}]{storage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de \doxylink{class_sign_in_form}{Sign\+In\+Form}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & Le widget parent de ce formulaire. \\
+\hline
+{\em storage} & Le stockage des utilisateurs pour gérer l\textquotesingle{}inscription.\\
+\hline
+\end{DoxyParams}
+Initialise un nouveau formulaire d\textquotesingle{}inscription avec un accès au stockage des utilisateurs. \Hypertarget{class_sign_in_form_ac1fa7817cef5ff61b14a85b5cf693921}\label{class_sign_in_form_ac1fa7817cef5ff61b14a85b5cf693921} 
+\index{SignInForm@{SignInForm}!````~SignInForm@{\texorpdfstring{$\sim$}{\string~}SignInForm}}
+\index{````~SignInForm@{\texorpdfstring{$\sim$}{\string~}SignInForm}!SignInForm@{SignInForm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SignInForm()}{\string~SignInForm()}}
+{\footnotesize\ttfamily Sign\+In\+Form\+::\texorpdfstring{$\sim$}{\string~}\+Sign\+In\+Form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de \doxylink{class_sign_in_form}{Sign\+In\+Form}. 
+
+Nettoie les ressources utilisées par le formulaire d\textquotesingle{}inscription. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sign_in_form_ac05a8332ff214db59bddbc96668945c2}\label{class_sign_in_form_ac05a8332ff214db59bddbc96668945c2} 
+\index{SignInForm@{SignInForm}!userCreated@{userCreated}}
+\index{userCreated@{userCreated}!SignInForm@{SignInForm}}
+\doxysubsubsection{\texorpdfstring{userCreated}{userCreated}}
+{\footnotesize\ttfamily void Sign\+In\+Form\+::user\+Created (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal émis après la création réussie d\textquotesingle{}un utilisateur. 
+
+Ce signal peut être utilisé pour effectuer des actions post-\/inscription, comme naviguer vers un autre écran ou afficher un message de succès. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{signinform_8h}{signinform.\+h}}\item 
+\mbox{\hyperlink{signinform_8cpp}{signinform.\+cpp}}\end{DoxyCompactItemize}

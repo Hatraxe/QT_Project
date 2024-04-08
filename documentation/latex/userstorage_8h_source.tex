@@ -1,0 +1,44 @@
+\doxysection{userstorage.\+h}
+\hypertarget{userstorage_8h_source}{}\label{userstorage_8h_source}\mbox{\hyperlink{userstorage_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ USERSTORAGE\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ USERSTORAGE\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QCryptographicHash>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QStandardPaths>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QDir>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QCoreApplication>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_user_8h}{User.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_user_storage}{UserStorage}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_user_storage_a42b5ac81e7a6498538367d5f0ec323aa}{UserStorage}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_storage_ab0f56c77c0ec107c1bee0c65b0d0bfbe}{saveUser}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_user}{User}}\&\ user);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_user_storage_a809c8f205dcce9ddfd3679479a354c9e}{validateUser}}(\textcolor{keyword}{const}\ QString\ \&username,\ \textcolor{keyword}{const}\ QString\ \&password);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ QString\ \mbox{\hyperlink{class_user_storage_affb3d5055872f9856e9bed724ec80cc3}{getFilename}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ QString\ \mbox{\hyperlink{class_user_storage_a13783e6655b1b8768628f110456b0e98}{getUserFilePath}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ QList<User>\ \mbox{\hyperlink{class_user_storage_a3f82a7e2b3ec491ad9f97450e7d995a0}{getUsers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_storage_a888266a76aae7e791014d32307c066ae}{setFilename}}(\textcolor{keyword}{const}\ QString\ \&filename);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_storage_abebb1a6a9beb6c470922d36c922e0e39}{setUserFilePath}}(\textcolor{keyword}{const}\ QString\ \&userFilePath);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_storage_a682c5204d7f309f1e30739571edcb81b}{setUsers}}(\textcolor{keyword}{const}\ QList<User>\ \&users);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ QString\ filename;\ }
+\DoxyCodeLine{00089\ \ \ \ \ QString\ userFilePath;\ }
+\DoxyCodeLine{00090\ \ \ \ \ QList<User>\ users;\ }
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ USERSTORAGE\_H}}
+
+\end{DoxyCode}

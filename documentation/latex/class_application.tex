@@ -1,0 +1,87 @@
+\doxysection{Référence de la classe Application}
+\hypertarget{class_application}{}\label{class_application}\index{Application@{Application}}
+
+
+La classe \doxylink{class_application}{Application} représente la fenêtre principale de l\textquotesingle{}application.  
+
+
+
+
+{\ttfamily \#include $<$Application.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Application\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_application}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_application_aae53f3dcf432cfc5c17ebab6fd7d614c}{Application}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxylink{class_application}{Application}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_application_a444b0b6d9162b14d5262b81bd75586df}{\texorpdfstring{$\sim$}{\string~}\+Application}} () override
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \doxylink{class_application}{Application}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_storage}{User\+Storage}} $>$ \mbox{\hyperlink{class_application_a21dbcfea15d5cd53fe03e96873c1f967}{get\+User\+Storage}} () const
+\begin{DoxyCompactList}\small\item\em Accesseur pour obtenir le gestionnaire de stockage des utilisateurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+La classe \doxylink{class_application}{Application} représente la fenêtre principale de l\textquotesingle{}application. 
+
+Cette classe gère la navigation entre les différentes vues de l\textquotesingle{}application et détient les instances principales de gestion des utilisateurs et de la connexion. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_application_aae53f3dcf432cfc5c17ebab6fd7d614c}\label{class_application_aae53f3dcf432cfc5c17ebab6fd7d614c} 
+\index{Application@{Application}!Application@{Application}}
+\index{Application@{Application}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}}
+{\footnotesize\ttfamily Application\+::\+Application (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de la classe \doxylink{class_application}{Application}. 
+
+Constructeur de \doxylink{class_application}{Application}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & Le widget parent de cette fenêtre principale.\\
+\hline
+{\em parent} & Le widget parent.\\
+\hline
+\end{DoxyParams}
+Initialise l\textquotesingle{}interface utilisateur et les composants principaux de l\textquotesingle{}application. \Hypertarget{class_application_a444b0b6d9162b14d5262b81bd75586df}\label{class_application_a444b0b6d9162b14d5262b81bd75586df} 
+\index{Application@{Application}!````~Application@{\texorpdfstring{$\sim$}{\string~}Application}}
+\index{````~Application@{\texorpdfstring{$\sim$}{\string~}Application}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Application()}{\string~Application()}}
+{\footnotesize\ttfamily Application\+::\texorpdfstring{$\sim$}{\string~}\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructeur de la classe \doxylink{class_application}{Application}. 
+
+Destructeur de \doxylink{class_application}{Application}.
+
+Nettoie l\textquotesingle{}interface utilisateur. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_application_a21dbcfea15d5cd53fe03e96873c1f967}\label{class_application_a21dbcfea15d5cd53fe03e96873c1f967} 
+\index{Application@{Application}!getUserStorage@{getUserStorage}}
+\index{getUserStorage@{getUserStorage}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{getUserStorage()}{getUserStorage()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_storage}{User\+Storage}} $>$ Application\+::get\+User\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accesseur pour obtenir le gestionnaire de stockage des utilisateurs. 
+
+\begin{DoxyReturn}{Renvoie}
+Un pointeur partagé vers l\textquotesingle{}instance de \doxylink{class_user_storage}{User\+Storage}. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_application_8h}{Application.\+h}}\item 
+\mbox{\hyperlink{_application_8cpp}{Application.\+cpp}}\end{DoxyCompactItemize}

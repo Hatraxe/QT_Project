@@ -1,0 +1,117 @@
+\doxysection{Référence de la classe Login\+Manager}
+\hypertarget{class_login_manager}{}\label{class_login_manager}\index{LoginManager@{LoginManager}}
+
+
+Gère les opérations de connexion et de déconnexion des utilisateurs.  
+
+
+
+
+{\ttfamily \#include $<$loginmanager.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_login_manager_ae7c3f448220f618ef08525980d9081d2}{Login\+Manager}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_storage}{User\+Storage}} $>$ storage)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{class_login_manager}{Login\+Manager}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_login_manager_a5e9fb19e828d4ef64ae575da3882f5da}{login}} (const QString \&username, const QString \&password)
+\begin{DoxyCompactList}\small\item\em Tente de connecter un utilisateur avec le nom d\textquotesingle{}utilisateur et le mot de passe fournis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_login_manager_a5882566fb5c1f00b58fa587d739545d4}{logout}} ()
+\begin{DoxyCompactList}\small\item\em Déconnecte l\textquotesingle{}utilisateur actuellement connecté. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_login_manager_a989d04108f8f3003642795ed6234b61a}{get\+Current\+User}} () const
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}utilisateur actuellement connecté. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gère les opérations de connexion et de déconnexion des utilisateurs. 
+
+Cette classe utilise \doxylink{class_user_storage}{User\+Storage} pour vérifier les informations d\textquotesingle{}identification des utilisateurs lors de la tentative de connexion et maintient une référence à l\textquotesingle{}utilisateur actuellement connecté. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_login_manager_ae7c3f448220f618ef08525980d9081d2}\label{class_login_manager_ae7c3f448220f618ef08525980d9081d2} 
+\index{LoginManager@{LoginManager}!LoginManager@{LoginManager}}
+\index{LoginManager@{LoginManager}!LoginManager@{LoginManager}}
+\doxysubsubsection{\texorpdfstring{LoginManager()}{LoginManager()}}
+{\footnotesize\ttfamily Login\+Manager\+::\+Login\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user_storage}{User\+Storage}} $>$}]{storage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de \doxylink{class_login_manager}{Login\+Manager}. 
+
+Constructeur de la classe \doxylink{class_login_manager}{Login\+Manager}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em storage} & Un pointeur partagé vers \doxylink{class_user_storage}{User\+Storage} utilisé pour accéder aux données des utilisateurs.\\
+\hline
+{\em storage} & Le stockage des utilisateurs pour vérifier les informations d\textquotesingle{}identification lors de la connexion.\\
+\hline
+\end{DoxyParams}
+Initialise le gestionnaire de connexion avec un stockage d\textquotesingle{}utilisateurs donné. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_login_manager_a989d04108f8f3003642795ed6234b61a}\label{class_login_manager_a989d04108f8f3003642795ed6234b61a} 
+\index{LoginManager@{LoginManager}!getCurrentUser@{getCurrentUser}}
+\index{getCurrentUser@{getCurrentUser}!LoginManager@{LoginManager}}
+\doxysubsubsection{\texorpdfstring{getCurrentUser()}{getCurrentUser()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_user}{User}} $>$ Login\+Manager\+::get\+Current\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Renvoie l\textquotesingle{}utilisateur actuellement connecté. 
+
+Obtient l\textquotesingle{}utilisateur actuellement connecté.
+
+\begin{DoxyReturn}{Renvoie}
+Un pointeur partagé vers l\textquotesingle{}utilisateur actuellement connecté, ou nullptr si aucun utilisateur n\textquotesingle{}est connecté.
+
+std\+::shared\+\_\+ptr$<$\+User$>$ Le pointeur intelligent vers l\textquotesingle{}utilisateur actuellement connecté, ou nullptr si aucun utilisateur n\textquotesingle{}est connecté.
+\end{DoxyReturn}
+Retourne un pointeur intelligent vers l\textquotesingle{}utilisateur actuellement connecté si celui-\/ci existe, sinon retourne nullptr. \Hypertarget{class_login_manager_a5e9fb19e828d4ef64ae575da3882f5da}\label{class_login_manager_a5e9fb19e828d4ef64ae575da3882f5da} 
+\index{LoginManager@{LoginManager}!login@{login}}
+\index{login@{login}!LoginManager@{LoginManager}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily bool Login\+Manager\+::login (\begin{DoxyParamCaption}\item[{const QString \&}]{username,  }\item[{const QString \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Tente de connecter un utilisateur avec le nom d\textquotesingle{}utilisateur et le mot de passe fournis. 
+
+Tente de connecter un utilisateur avec un nom d\textquotesingle{}utilisateur et un mot de passe donnés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em username} & Le nom d\textquotesingle{}utilisateur. \\
+\hline
+{\em password} & Le mot de passe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne vrai si la connexion est réussie, faux sinon.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em username} & Le nom d\textquotesingle{}utilisateur pour la tentative de connexion. \\
+\hline
+{\em password} & Le mot de passe pour la tentative de connexion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Retourne vrai si la connexion est réussie, sinon faux.
+\end{DoxyReturn}
+Parcourt la liste des utilisateurs stockés pour trouver une correspondance avec les informations d\textquotesingle{}identification fournies. Si une correspondance est trouvée, l\textquotesingle{}utilisateur est considéré comme connecté et stocké comme l\textquotesingle{}utilisateur actuel. \Hypertarget{class_login_manager_a5882566fb5c1f00b58fa587d739545d4}\label{class_login_manager_a5882566fb5c1f00b58fa587d739545d4} 
+\index{LoginManager@{LoginManager}!logout@{logout}}
+\index{logout@{logout}!LoginManager@{LoginManager}}
+\doxysubsubsection{\texorpdfstring{logout()}{logout()}}
+{\footnotesize\ttfamily void Login\+Manager\+::logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Déconnecte l\textquotesingle{}utilisateur actuellement connecté. 
+
+Réinitialise le pointeur intelligent de l\textquotesingle{}utilisateur actuellement connecté, le mettant à nullptr. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{loginmanager_8h}{loginmanager.\+h}}\item 
+\mbox{\hyperlink{_login_manager_8cpp}{Login\+Manager.\+cpp}}\end{DoxyCompactItemize}

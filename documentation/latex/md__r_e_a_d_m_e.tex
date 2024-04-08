@@ -1,0 +1,32 @@
+\chapter{SQLite Database Viewer}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{SQLite Database Viewer@{SQLite Database Viewer}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ SQLite Database Viewer est une application développée en C++ avec le framework Qt. Elle permet de visualiser et d\textquotesingle{}interagir avec des bases de données SQLite. L\textquotesingle{}application offre une interface pour se connecter avec des profils d\textquotesingle{}utilisateurs différents, afficher et modifier les données des bases de données SQLite existantes.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Fonctionnalités}{Fonctionnalités}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\bfseries{Gestion des Utilisateurs}} \+: Création d\textquotesingle{}un nouvel utilisateur lors du premier lancement. Connexion/déconnexion avec mot de passe pour les utilisations suivantes.
+\item {\bfseries{Profils Utilisateurs}} \+: Chaque utilisateur peut posséder plusieurs profils.
+\item {\bfseries{Gestion des Droits}} \+: Les droits d\textquotesingle{}accès (visualisation, édition) sont spécifiques à chaque utilisateur.
+\item {\bfseries{Super Utilisateur}} \+: Un super utilisateur par défaut ({\ttfamily email\+: superuser}, {\ttfamily mdp\+: password}) dispose de tous les droits, permettant une gestion avancée de l\textquotesingle{}application.
+\item {\bfseries{Visualisation et Gestion des Bases de Données}} \+:
+\begin{DoxyItemize}
+\item Ajout et suppression de bases de données existantes via un {\ttfamily QFile\+Dialog}.
+\item Sélection d\textquotesingle{}une base de données pour afficher ses tables et leurs contenus.
+\item Exécution de requêtes SQL avec affichage des résultats.
+\end{DoxyItemize}
+\item {\bfseries{Sécurité et Gestion des Droits}} \+: Restriction des types de requêtes selon les droits de l\textquotesingle{}utilisateur (seul le super utilisateur peut exécuter toutes les requêtes).
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md__r_e_a_d_m_e_autotoc_md2}
+Décrivez ici comment compiler et exécuter votre application, y compris les dépendances requises et les étapes de compilation spécifiques à votre projet.\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Utilisation}{Utilisation}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Premier Lancement}} \+: Suivez les instructions à l\textquotesingle{}écran pour créer un nouvel utilisateur.
+\item {\bfseries{Connexion}} \+: Utilisez vos identifiants pour vous connecter. Pour accéder en tant que super utilisateur, utilisez l\textquotesingle{}email {\ttfamily superuser} et le mot de passe {\ttfamily password}.
+\item {\bfseries{Gestion des Bases de Données}} \+: Utilisez l\textquotesingle{}interface pour ajouter, supprimer ou sélectionner des bases de données à visualiser.
+\item {\bfseries{Exécution de Requêtes}} \+: Les utilisateurs peuvent exécuter des requêtes {\ttfamily SELECT}. Le super utilisateur a accès à toutes les opérations SQL.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Développement Futur}{Développement Futur}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Amélioration de la Gestion des Droits}} \+: Permettre au super utilisateur de modifier les droits d\textquotesingle{}accès des autres utilisateurs.
+\item {\bfseries{Extension des Fonctionnalités}} \+: Ajout de fonctionnalités avancées de gestion et d\textquotesingle{}analyse des données. 
+\end{DoxyItemize}

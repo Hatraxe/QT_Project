@@ -1,0 +1,105 @@
+\doxysection{Référence de la classe User\+Data\+View}
+\hypertarget{class_user_data_view}{}\label{class_user_data_view}\index{UserDataView@{UserDataView}}
+
+
+Classe représentant la vue des données de l\textquotesingle{}utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$userdataview.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de User\+Data\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_user_data_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_user_data_view_af4bbd0c0f3dbfc6cf18c31890ee2d2bf}\label{class_user_data_view_af4bbd0c0f3dbfc6cf18c31890ee2d2bf} 
+void {\bfseries logout\+Requested} ()
+\begin{DoxyCompactList}\small\item\em Signal émis lorsque l\textquotesingle{}utilisateur demande à se déconnecter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_data_view_a7ed29f7964086fc713d227c59218c3d3}{User\+Data\+View}} (QWidget \texorpdfstring{$\ast$}{*}parent, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_login_manager}{Login\+Manager}} $>$ login\+Manager)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{class_user_data_view}{User\+Data\+View}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_data_view_a12a0f52760fee32529dbd37d644aaa32}{\texorpdfstring{$\sim$}{\string~}\+User\+Data\+View}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \doxylink{class_user_data_view}{User\+Data\+View}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_data_view_a87f47f47466048fe6cce8f4ff484d8bd}{refresh\+User\+Infos}} ()
+\begin{DoxyCompactList}\small\item\em Rafraîchit les informations affichées de l\textquotesingle{}utilisateur. \end{DoxyCompactList}\item 
+\Hypertarget{class_user_data_view_ac21be7a2adc76cb2cb2ea2d2ab4cef7a}\label{class_user_data_view_ac21be7a2adc76cb2cb2ea2d2ab4cef7a} 
+void {\bfseries set\+Database\+Manager} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_database_manager}{Database\+Manager}} $>$ db\+Manager)
+\item 
+\Hypertarget{class_user_data_view_af262b37c6d6551555fe8b8dd14043a02}\label{class_user_data_view_af262b37c6d6551555fe8b8dd14043a02} 
+bool {\bfseries is\+Valid\+Query} (const QString \&query, const \mbox{\hyperlink{class_user_rights}{User\+Rights}} \&rights)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe représentant la vue des données de l\textquotesingle{}utilisateur. 
+
+Fournit une interface graphique pour afficher les informations de l\textquotesingle{}utilisateur connecté et permettre certaines actions comme la déconnexion ou le changement de profil. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_user_data_view_a7ed29f7964086fc713d227c59218c3d3}\label{class_user_data_view_a7ed29f7964086fc713d227c59218c3d3} 
+\index{UserDataView@{UserDataView}!UserDataView@{UserDataView}}
+\index{UserDataView@{UserDataView}!UserDataView@{UserDataView}}
+\doxysubsubsection{\texorpdfstring{UserDataView()}{UserDataView()}}
+{\footnotesize\ttfamily User\+Data\+View\+::\+User\+Data\+View (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_login_manager}{Login\+Manager}} $>$}]{login\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de \doxylink{class_user_data_view}{User\+Data\+View}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & Le widget parent de cette vue. \\
+\hline
+{\em login\+Manager} & Le gestionnaire de connexion pour accéder aux informations de l\textquotesingle{}utilisateur connecté.\\
+\hline
+\end{DoxyParams}
+Initialise une nouvelle vue pour afficher les informations de l\textquotesingle{}utilisateur connecté.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & Le widget parent de cette vue. \\
+\hline
+{\em login\+Manager} & Le gestionnaire de connexion pour accéder aux informations de l\textquotesingle{}utilisateur connecté.\\
+\hline
+\end{DoxyParams}
+Initialise la vue \doxylink{class_user_data_view}{User\+Data\+View} et connecte les boutons à leurs slots respectifs. \Hypertarget{class_user_data_view_a12a0f52760fee32529dbd37d644aaa32}\label{class_user_data_view_a12a0f52760fee32529dbd37d644aaa32} 
+\index{UserDataView@{UserDataView}!````~UserDataView@{\texorpdfstring{$\sim$}{\string~}UserDataView}}
+\index{````~UserDataView@{\texorpdfstring{$\sim$}{\string~}UserDataView}!UserDataView@{UserDataView}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UserDataView()}{\string~UserDataView()}}
+{\footnotesize\ttfamily User\+Data\+View\+::\texorpdfstring{$\sim$}{\string~}\+User\+Data\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de \doxylink{class_user_data_view}{User\+Data\+View}. 
+
+Nettoie les ressources utilisées par la vue. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_data_view_a87f47f47466048fe6cce8f4ff484d8bd}\label{class_user_data_view_a87f47f47466048fe6cce8f4ff484d8bd} 
+\index{UserDataView@{UserDataView}!refreshUserInfos@{refreshUserInfos}}
+\index{refreshUserInfos@{refreshUserInfos}!UserDataView@{UserDataView}}
+\doxysubsubsection{\texorpdfstring{refreshUserInfos()}{refreshUserInfos()}}
+{\footnotesize\ttfamily void User\+Data\+View\+::refresh\+User\+Infos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rafraîchit les informations affichées de l\textquotesingle{}utilisateur. 
+
+Rafraîchit les informations de l\textquotesingle{}utilisateur affichées.
+
+Met à jour l\textquotesingle{}interface avec les informations actuelles de l\textquotesingle{}utilisateur connecté.
+
+Met à jour l\textquotesingle{}interface utilisateur avec les informations actuelles de l\textquotesingle{}utilisateur connecté, incluant les noms, les droits d\textquotesingle{}accès et la liste des profils. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{userdataview_8h}{userdataview.\+h}}\item 
+\mbox{\hyperlink{userdataview_8cpp}{userdataview.\+cpp}}\end{DoxyCompactItemize}

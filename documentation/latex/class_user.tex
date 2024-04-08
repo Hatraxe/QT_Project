@@ -1,0 +1,175 @@
+\doxysection{Référence de la classe User}
+\hypertarget{class_user}{}\label{class_user}\index{User@{User}}
+
+
+Classe représentant un utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$User.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a9afc608c9a6e3e3b3357494771c8cf2d}{User}} (const QString \&first\+Name, const QString \&last\+Name, const QString \&username, const QString \&password, const \mbox{\hyperlink{class_user_rights}{User\+Rights}} \&rights, const QList$<$ \mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} $>$ \&profiles)
+\begin{DoxyCompactList}\small\item\em Constructeur complet de \doxylink{class_user}{User}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_aad23b10cdefd26d6ca2ca981e9f9c973}{User}} (const \mbox{\hyperlink{class_user}{User}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user_ab2d50536b226db631ffed05342f96d7c}{User}} (const QString \&first\+Name, const QString \&last\+Name, const QString \&username, const QString \&password, const QList$<$ \mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} $>$ \&profiles)
+\begin{DoxyCompactList}\small\item\em Constructeur alternatif sans droits spécifiés. \end{DoxyCompactList}\item 
+\Hypertarget{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+User} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \doxylink{class_user}{User}. \end{DoxyCompactList}\item 
+\Hypertarget{class_user_a8f1bf3ba6a5de54043485638ad4793f5}\label{class_user_a8f1bf3ba6a5de54043485638ad4793f5} 
+void {\bfseries set\+First\+Name} (const QString \&first\+Name)
+\item 
+\Hypertarget{class_user_ac08718fec3ea1a3bcdc176aaa1a239ec}\label{class_user_ac08718fec3ea1a3bcdc176aaa1a239ec} 
+void {\bfseries set\+Last\+Name} (const QString \&last\+Name)
+\item 
+\Hypertarget{class_user_a3ff12162238cf1b18827800f790c42ea}\label{class_user_a3ff12162238cf1b18827800f790c42ea} 
+void {\bfseries set\+Username} (const QString \&username)
+\item 
+\Hypertarget{class_user_aaef2e67dfc0be2d432bb5f554758964f}\label{class_user_aaef2e67dfc0be2d432bb5f554758964f} 
+void {\bfseries set\+Password} (const QString \&password)
+\item 
+\Hypertarget{class_user_a91e62195fa76a6048c0ca6629ac662d5}\label{class_user_a91e62195fa76a6048c0ca6629ac662d5} 
+void {\bfseries set\+Rights} (const \mbox{\hyperlink{class_user_rights}{User\+Rights}} \&rights)
+\item 
+\Hypertarget{class_user_a091f05cf07837db4bc5b63c00e71adad}\label{class_user_a091f05cf07837db4bc5b63c00e71adad} 
+void {\bfseries set\+Profiles} (const QList$<$ \mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} $>$ \&profiles)
+\item 
+\Hypertarget{class_user_ab918591e80a60688f1d52d5fc1238c35}\label{class_user_ab918591e80a60688f1d52d5fc1238c35} 
+void {\bfseries add\+Profile} (\mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*}profile)
+\begin{DoxyCompactList}\small\item\em Ajoute un profil à l\textquotesingle{}utilisateur. \end{DoxyCompactList}\item 
+\Hypertarget{class_user_a7795a9686dc764081971a9f7dc4172e0}\label{class_user_a7795a9686dc764081971a9f7dc4172e0} 
+void {\bfseries set\+Current\+Profile} (\mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*}profile)
+\begin{DoxyCompactList}\small\item\em Définit le profil courant de l\textquotesingle{}utilisateur. \end{DoxyCompactList}\item 
+\Hypertarget{class_user_a86d1ab75ca7c4ad813ae72b43297fb35}\label{class_user_a86d1ab75ca7c4ad813ae72b43297fb35} 
+QString {\bfseries get\+First\+Name} () const
+\item 
+\Hypertarget{class_user_a9864f7521f7f0bf8132e2464e9df7a02}\label{class_user_a9864f7521f7f0bf8132e2464e9df7a02} 
+QString {\bfseries get\+Last\+Name} () const
+\item 
+\Hypertarget{class_user_a0479f7f168b8ec592ecc1ea9f95d0868}\label{class_user_a0479f7f168b8ec592ecc1ea9f95d0868} 
+QString {\bfseries get\+Password} () const
+\item 
+\Hypertarget{class_user_a1c9ee5527f563fb644e0ad6bbab79f41}\label{class_user_a1c9ee5527f563fb644e0ad6bbab79f41} 
+QString {\bfseries get\+Username} () const
+\item 
+\Hypertarget{class_user_a9cf157edfaf9aec44b794482afc142eb}\label{class_user_a9cf157edfaf9aec44b794482afc142eb} 
+QString {\bfseries get\+Mail} () const
+\item 
+\Hypertarget{class_user_a474f979264c36a1cc6b9f15753d785f3}\label{class_user_a474f979264c36a1cc6b9f15753d785f3} 
+QList$<$ \mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Profiles} () const
+\item 
+\Hypertarget{class_user_acd031887a69186c6040d8f5422256bf6}\label{class_user_acd031887a69186c6040d8f5422256bf6} 
+\mbox{\hyperlink{class_user_rights}{User\+Rights}} {\bfseries get\+Rights} () const
+\item 
+\Hypertarget{class_user_af88c4320327c00ef50522924acb61961}\label{class_user_af88c4320327c00ef50522924acb61961} 
+\mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Current\+Profile} () const
+\item 
+bool \mbox{\hyperlink{class_user_a1aadca7f62f2d8ce2c379c3c9ab5bb1b}{check\+Password}} (const QString \&password) const
+\begin{DoxyCompactList}\small\item\em Vérifie si le mot de passe fourni correspond au mot de passe de l\textquotesingle{}utilisateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe représentant un utilisateur. 
+
+Stocke les informations d\textquotesingle{}un utilisateur, gère les profils associés et les droits d\textquotesingle{}accès. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_user_a9afc608c9a6e3e3b3357494771c8cf2d}\label{class_user_a9afc608c9a6e3e3b3357494771c8cf2d} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{first\+Name,  }\item[{const QString \&}]{last\+Name,  }\item[{const QString \&}]{username,  }\item[{const QString \&}]{password,  }\item[{const \mbox{\hyperlink{class_user_rights}{User\+Rights}} \&}]{rights,  }\item[{const QList$<$ \mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} $>$ \&}]{profiles }\end{DoxyParamCaption})}
+
+
+
+Constructeur complet de \doxylink{class_user}{User}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em first\+Name} & Prénom de l\textquotesingle{}utilisateur. \\
+\hline
+{\em last\+Name} & Nom de famille de l\textquotesingle{}utilisateur. \\
+\hline
+{\em username} & Nom d\textquotesingle{}utilisateur. \\
+\hline
+{\em password} & Mot de passe (non haché). \\
+\hline
+{\em rights} & Droits de l\textquotesingle{}utilisateur. \\
+\hline
+{\em profiles} & Liste des profils associés à l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_aad23b10cdefd26d6ca2ca981e9f9c973}\label{class_user_aad23b10cdefd26d6ca2ca981e9f9c973} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Constructeur de copie. 
+
+Constructeur de copie de \doxylink{class_user}{User}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em other} & L\textquotesingle{}objet \doxylink{class_user}{User} à copier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_ab2d50536b226db631ffed05342f96d7c}\label{class_user_ab2d50536b226db631ffed05342f96d7c} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const QString \&}]{first\+Name,  }\item[{const QString \&}]{last\+Name,  }\item[{const QString \&}]{username,  }\item[{const QString \&}]{password,  }\item[{const QList$<$ \mbox{\hyperlink{class_profile}{Profile}} \texorpdfstring{$\ast$}{*} $>$ \&}]{profiles }\end{DoxyParamCaption})}
+
+
+
+Constructeur alternatif sans droits spécifiés. 
+
+Constructeur alternatif de \doxylink{class_user}{User} sans droits spécifiés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em first\+Name} & Prénom de l\textquotesingle{}utilisateur. \\
+\hline
+{\em last\+Name} & Nom de famille de l\textquotesingle{}utilisateur. \\
+\hline
+{\em username} & Nom d\textquotesingle{}utilisateur. \\
+\hline
+{\em password} & Mot de passe (non haché). \\
+\hline
+{\em profiles} & Liste des profils associés à l\textquotesingle{}utilisateur. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_user_a1aadca7f62f2d8ce2c379c3c9ab5bb1b}\label{class_user_a1aadca7f62f2d8ce2c379c3c9ab5bb1b} 
+\index{User@{User}!checkPassword@{checkPassword}}
+\index{checkPassword@{checkPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{checkPassword()}{checkPassword()}}
+{\footnotesize\ttfamily bool User\+::check\+Password (\begin{DoxyParamCaption}\item[{const QString \&}]{password }\end{DoxyParamCaption}) const}
+
+
+
+Vérifie si le mot de passe fourni correspond au mot de passe de l\textquotesingle{}utilisateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em password} & Le mot de passe à vérifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si le mot de passe correspond, false sinon. 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_user_8h}{User.\+h}}\item 
+\mbox{\hyperlink{_user_8cpp}{User.\+cpp}}\end{DoxyCompactItemize}

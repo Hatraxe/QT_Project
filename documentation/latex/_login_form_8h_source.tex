@@ -1,0 +1,43 @@
+\doxysection{Login\+Form.\+h}
+\hypertarget{_login_form_8h_source}{}\label{_login_form_8h_source}\mbox{\hyperlink{_login_form_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LOGINFORM\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LOGINFORM\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QMessageBox>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{loginmanager_8h}{LoginManager.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_login_form}{LoginForm}};}
+\DoxyCodeLine{00017\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_login_form}{LoginForm}}\ :\ \textcolor{keyword}{public}\ QWidget\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_login_form_af93e67be15d544f7e2b9cd5f1e0a920a}{LoginForm}}(QWidget\ *parent,\ std::shared\_ptr<LoginManager>\ loginManager);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_login_form_a3afb9c764d7d7c72f107f0ec1f08769c}{\string~LoginForm}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ signals:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_login_form_a62a5fe6bc43e86ab35a4dbd4dca8cd06}{userConnected}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_login_form_ae1ae4dda63eb118f5a876b37b72b3e55}{signUpRequested}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ login();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ mdpOublie();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ signInSignal();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ Ui::LoginForm\ *ui;\ }
+\DoxyCodeLine{00076\ \ \ \ \ std::shared\_ptr<LoginManager>\ loginManager;\ }
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOGINFORM\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,119 @@
+\doxysection{Référence de la classe Profile}
+\hypertarget{class_profile}{}\label{class_profile}\index{Profile@{Profile}}
+
+
+Classe représentant un profil utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$Profile.\+h$>$}
+
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_profile_a047cf07f97b92c8d672eca93a10e4bd4}{Profile}} (const QString \&name)
+\begin{DoxyCompactList}\small\item\em Constructeur de \doxylink{class_profile}{Profile}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_profile_a2aa3edc3bdf174d1cb1e6a5df0551e56}{Profile}} (const \mbox{\hyperlink{class_profile}{Profile}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructeur de copie de \doxylink{class_profile}{Profile}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_profile_a58fa758a59bc4ee3c1a9980e360e4e98}{\texorpdfstring{$\sim$}{\string~}\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de \doxylink{class_profile}{Profile}. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_profile_a45c222f655c138cc212cd07b59015307}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Obtient le nom du profil. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe représentant un profil utilisateur. 
+
+Cette classe stocke le nom d\textquotesingle{}un profil utilisateur et fournit les fonctionnalités nécessaires pour accéder et gérer ce nom. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_profile_a047cf07f97b92c8d672eca93a10e4bd4}\label{class_profile_a047cf07f97b92c8d672eca93a10e4bd4} 
+\index{Profile@{Profile}!Profile@{Profile}}
+\index{Profile@{Profile}!Profile@{Profile}}
+\doxysubsubsection{\texorpdfstring{Profile()}{Profile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Profile\+::\+Profile (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructeur de \doxylink{class_profile}{Profile}. 
+
+Constructeur avec un nom de profil.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & Le nom du profil.\\
+\hline
+\end{DoxyParams}
+Initialise un nouveau profil avec un nom spécifié.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & Nom du profil.\\
+\hline
+\end{DoxyParams}
+Initialise un profil avec le nom spécifié. \Hypertarget{class_profile_a2aa3edc3bdf174d1cb1e6a5df0551e56}\label{class_profile_a2aa3edc3bdf174d1cb1e6a5df0551e56} 
+\index{Profile@{Profile}!Profile@{Profile}}
+\index{Profile@{Profile}!Profile@{Profile}}
+\doxysubsubsection{\texorpdfstring{Profile()}{Profile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Profile\+::\+Profile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_profile}{Profile}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Constructeur de copie de \doxylink{class_profile}{Profile}. 
+
+Constructeur de recopie.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em other} & Un autre profil à copier.\\
+\hline
+\end{DoxyParams}
+Crée une copie d\textquotesingle{}un profil existant.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em other} & Profil à copier.\\
+\hline
+\end{DoxyParams}
+Crée une copie du profil spécifié en copiant son nom. \Hypertarget{class_profile_a58fa758a59bc4ee3c1a9980e360e4e98}\label{class_profile_a58fa758a59bc4ee3c1a9980e360e4e98} 
+\index{Profile@{Profile}!````~Profile@{\texorpdfstring{$\sim$}{\string~}Profile}}
+\index{````~Profile@{\texorpdfstring{$\sim$}{\string~}Profile}!Profile@{Profile}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Profile()}{\string~Profile()}}
+{\footnotesize\ttfamily Profile\+::\texorpdfstring{$\sim$}{\string~}\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de \doxylink{class_profile}{Profile}. 
+
+Détruit l\textquotesingle{}instance de \doxylink{class_profile}{Profile}, libérant les ressources allouées.
+
+Libère les ressources allouées par le profil. Pour un QString, cette libération est automatiquement gérée. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_profile_a45c222f655c138cc212cd07b59015307}\label{class_profile_a45c222f655c138cc212cd07b59015307} 
+\index{Profile@{Profile}!getName@{getName}}
+\index{getName@{getName}!Profile@{Profile}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily QString Profile\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtient le nom du profil. 
+
+Récupère le nom du profil.
+
+\begin{DoxyReturn}{Renvoie}
+Le nom du profil.
+\end{DoxyReturn}
+Retourne le nom associé à ce profil.
+
+\begin{DoxyReturn}{Renvoie}
+Le nom du profil sous forme de QString.
+\end{DoxyReturn}
+Retourne le nom associé à ce profil. 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_profile_8h}{Profile.\+h}}\item 
+Profil.\+cpp\end{DoxyCompactItemize}

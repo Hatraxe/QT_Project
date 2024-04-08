@@ -1,0 +1,35 @@
+\doxysection{User\+Rights.\+h}
+\hypertarget{_user_rights_8h_source}{}\label{_user_rights_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ UserRights.h}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ USERRIGHTS\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ USERRIGHTS\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_user_rights}{UserRights}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{class_user_rights}{UserRights}}(\textcolor{keywordtype}{bool}\ canView\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ canEdit\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ isAdmin\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ :\ viewPermission(canView),\ editPermission(canEdit),\ adminPermission(isAdmin)\ \{\}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_user_rights}{\string~UserRights}}()\ \{\}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ canView()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ viewPermission;\ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ canEdit()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ editPermission;\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ isAdmin()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ adminPermission;\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ setCanView(\textcolor{keywordtype}{bool}\ canView)\ \{\ viewPermission\ =\ canView;\ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ setCanEdit(\textcolor{keywordtype}{bool}\ canEdit)\ \{\ editPermission\ =\ canEdit;\ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ setIsAdmin(\textcolor{keywordtype}{bool}\ isAdmin)\ \{\ adminPermission\ =\ isAdmin;\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ viewPermission;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ editPermission;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ adminPermission;}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ USERRIGHTS\_H}}
+
+\end{DoxyCode}
